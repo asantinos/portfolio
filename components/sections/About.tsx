@@ -13,16 +13,15 @@ export default function About() {
                     className="space-y-4"
                 >
                     <h2 className="text-center leading-tight">
-                        Building products that drive growth.
+                        Crafting digital experiences that convert.
                     </h2>
 
                     <div className="max-w-2xl mx-auto space-y-2">
                         <p className="text-[#86868b] text-xl leading-relaxed text-center">
-                            Martech Engineer at Merkle. Founder at RIQO Agency.
+                            Currently engineering marketing solutions at Merkle while building RIQO, a CRO agency focused on Shopify growth.
                         </p>
                         <p className="text-[#6e6e73] text-base leading-relaxed text-center">
-                            Specializing in full-stack development, conversion optimization,
-                            and data-driven analytics for enterprise clients.
+                            I help brands optimize their digital presence through technical implementation, conversion-focused design, and analytics-driven insights.
                         </p>
                     </div>
                 </motion.div>
