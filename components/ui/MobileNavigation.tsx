@@ -2,10 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import {
-    subscribeToSection,
-    navigateToSection,
-} from "@/lib/useFullpageScroll";
+import { subscribeToSection, navigateToSection } from "@/lib/useFullpageScroll";
 
 const sections = [
     { id: "hero", label: "Home", icon: "home" },
@@ -29,9 +26,7 @@ export default function MobileNavigation() {
     const [isExpanded, setIsExpanded] = useState(false);
 
     useEffect(() => {
-        const unsubscribe = subscribeToSection((section) => {
-            setActiveSection(section);
-        });
+        const unsubscribe = subscribeToSection(setActiveSection);
         return unsubscribe;
     }, []);
 
@@ -42,10 +37,10 @@ export default function MobileNavigation() {
 
     return (
         <>
-            {/* Mobile Bottom Navigation - Visible only on mobile/tablet */}
             <motion.nav
-                initial={{ y: 100 }}
-                animate={{ y: 0 }}
+                initial={{ y: 80, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50"
             >
                 <div className="relative">
@@ -53,10 +48,10 @@ export default function MobileNavigation() {
                     <AnimatePresence>
                         {isExpanded && (
                             <motion.div
-                                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                                initial={{ opacity: 0, y: 12, scale: 0.95 }}
                                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                                exit={{ opacity: 0, y: 20, scale: 0.9 }}
-                                transition={{ duration: 0.2 }}
+                                exit={{ opacity: 0, y: 12, scale: 0.95 }}
+                                transition={{ duration: 0.25, ease: "easeOut" }}
                                 className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-64"
                             >
                                 <div className="bg-[#1d1d1f]/95 backdrop-blur-xl border border-[#424245]/50 rounded-3xl p-3 shadow-2xl">
@@ -72,7 +67,9 @@ export default function MobileNavigation() {
                                                         ? "bg-white/10 text-white"
                                                         : "text-[#86868b] hover:bg-white/5"
                                                 }`}
-                                                whileHover={{ scale: 1.02 }}
+                                                whileHover={{
+                                                    scale: 1.03,
+                                                }}
                                                 whileTap={{ scale: 0.98 }}
                                             >
                                                 <svg
@@ -96,13 +93,14 @@ export default function MobileNavigation() {
                                                 <span className="font-medium text-sm">
                                                     {section.label}
                                                 </span>
+
                                                 {activeSection === index && (
                                                     <motion.div
                                                         layoutId="activeIndicator"
                                                         className="ml-auto w-2 h-2 rounded-full bg-white"
                                                         transition={{
                                                             type: "spring",
-                                                            stiffness: 380,
+                                                            stiffness: 400,
                                                             damping: 30,
                                                         }}
                                                     />
@@ -115,95 +113,101 @@ export default function MobileNavigation() {
                         )}
                     </AnimatePresence>
 
-                    {/* Collapsed Navigation Bar */}
-                    <div className="bg-[#1d1d1f]/95 backdrop-blur-xl border border-[#424245]/50 rounded-full px-4 py-2.5 shadow-2xl">
-                        <div className="flex items-center gap-2">
-                            {/* Active Section Indicator */}
-                            <motion.button
-                                onClick={() => setIsExpanded(!isExpanded)}
-                                className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 touch-manipulation"
-                                whileTap={{ scale: 0.95 }}
+                    {/* Collapsed Navigation */}
+                    <motion.div
+                        layout
+                        className="bg-[#1d1d1f]/95 backdrop-blur-xl border border-[#424245]/50 rounded-full px-4 py-2.5 shadow-2xl flex items-center gap-2"
+                    >
+                        {/* Active Section Button */}
+                        <motion.button
+                            onClick={() => setIsExpanded(!isExpanded)}
+                            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 touch-manipulation"
+                            whileTap={{ scale: 0.95 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 400,
+                                damping: 20,
+                            }}
+                        >
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="text-white"
                             >
-                                <svg
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
+                                <path
+                                    d={
+                                        iconPaths[
+                                            sections[activeSection]
+                                                .icon as keyof typeof iconPaths
+                                        ]
+                                    }
+                                />
+                            </svg>
+                            <span className="text-white text-xs font-medium">
+                                {sections[activeSection].label}
+                            </span>
+                            <motion.svg
+                                width="12"
+                                height="12"
+                                viewBox="0 0 12 12"
+                                fill="none"
+                                className="text-[#86868b]"
+                                animate={{ rotate: isExpanded ? 180 : 0 }}
+                                transition={{ duration: 0.25 }}
+                            >
+                                <path
+                                    d="M3 5l3 3 3-3"
                                     stroke="currentColor"
-                                    strokeWidth="2"
+                                    strokeWidth="1.5"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
-                                    className="text-white"
-                                >
-                                    <path
-                                        d={
-                                            iconPaths[
-                                                sections[activeSection]
-                                                    .icon as keyof typeof iconPaths
-                                            ]
-                                        }
-                                    />
-                                </svg>
-                                <span className="text-white text-xs font-medium">
-                                    {sections[activeSection].label}
-                                </span>
-                                <motion.svg
-                                    width="12"
-                                    height="12"
-                                    viewBox="0 0 12 12"
-                                    fill="none"
-                                    className="text-[#86868b]"
-                                    animate={{
-                                        rotate: isExpanded ? 180 : 0,
-                                    }}
-                                    transition={{ duration: 0.2 }}
-                                >
-                                    <path
-                                        d="M3 5l3 3 3-3"
-                                        stroke="currentColor"
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                </motion.svg>
-                            </motion.button>
+                                />
+                            </motion.svg>
+                        </motion.button>
 
-                            {/* Quick Navigation Dots */}
-                            <div className="flex items-center gap-1.5 px-2">
-                                {sections.map((_, index) => (
-                                    <motion.button
-                                        key={index}
-                                        onClick={() => scrollToSection(index)}
-                                        className="touch-manipulation"
-                                        whileTap={{ scale: 0.8 }}
-                                    >
-                                        <motion.div
-                                            className={`rounded-full transition-all ${
+                        {/* Navigation Dots */}
+                        <div className="flex items-center gap-1.5 px-2">
+                            {sections.map((_, index) => (
+                                <motion.button
+                                    key={index}
+                                    onClick={() => scrollToSection(index)}
+                                    className="touch-manipulation"
+                                    whileTap={{ scale: 0.85 }}
+                                >
+                                    <motion.div
+                                        layout
+                                        className={`rounded-full ${
+                                            activeSection === index
+                                                ? "bg-white"
+                                                : "bg-[#424245]"
+                                        }`}
+                                        style={{
+                                            width:
                                                 activeSection === index
-                                                    ? "bg-white w-6 h-1.5"
-                                                    : "bg-[#424245] w-1.5 h-1.5"
-                                            }`}
-                                            animate={{
-                                                width:
-                                                    activeSection === index
-                                                        ? 24
-                                                        : 6,
-                                                height: 6,
-                                            }}
-                                            transition={{
-                                                duration: 0.3,
-                                                ease: "easeInOut",
-                                            }}
-                                        />
-                                    </motion.button>
-                                ))}
-                            </div>
+                                                    ? 20
+                                                    : 6,
+                                            height: 6,
+                                        }}
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 400,
+                                            damping: 30,
+                                        }}
+                                    />
+                                </motion.button>
+                            ))}
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </motion.nav>
 
-            {/* Backdrop when menu is expanded */}
+            {/* Dimmed backdrop */}
             <AnimatePresence>
                 {isExpanded && (
                     <motion.div
@@ -211,7 +215,8 @@ export default function MobileNavigation() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={() => setIsExpanded(false)}
-                        className="md:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+                        className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+                        transition={{ duration: 0.3 }}
                     />
                 )}
             </AnimatePresence>
