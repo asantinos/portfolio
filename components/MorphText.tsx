@@ -68,7 +68,7 @@ export default function MorphText({ text, subtitle }: MorphTextProps) {
     }, []);
 
     return (
-        <div className="relative">
+        <div className="relative px-4 sm:px-6 max-w-5xl mx-auto">
             {/* SVG Filter */}
             <svg className="absolute w-0 h-0">
                 <defs>
@@ -94,7 +94,7 @@ export default function MorphText({ text, subtitle }: MorphTextProps) {
             </svg>
 
             {/* Main text */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-none select-none text-white">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-none select-none text-white text-center">
                 {text.split("").map((char, index) => (
                     <MorphLetter
                         key={index}
@@ -108,7 +108,7 @@ export default function MorphText({ text, subtitle }: MorphTextProps) {
 
             {/* Subtitle (optional) */}
             {subtitle && (
-                <p className="absolute -bottom-16 left-1/2 -translate-x-1/2 text-white/70 text-md text-center whitespace-nowrap">
+                <p className="mt-6 sm:mt-8 md:mt-12 lg:absolute lg:-bottom-16 lg:left-1/2 lg:-translate-x-1/2 text-white/70 text-xs sm:text-sm md:text-base lg:text-md text-center px-4 whitespace-normal sm:whitespace-nowrap">
                     {subtitle}
                 </p>
             )}

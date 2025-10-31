@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function CustomCursor() {
     const [isHovering, setIsHovering] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const x = useMotionValue(-100);
     const y = useMotionValue(-100);
 
@@ -21,6 +22,14 @@ export default function CustomCursor() {
     const scaleY = useSpring(1, { damping: 25, stiffness: 250 });
 
     useEffect(() => {
+        // Check if device is mobile
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
         const move = (e: MouseEvent) => {
             x.set(e.clientX - 12);
             y.set(e.clientY - 12);
@@ -43,6 +52,7 @@ export default function CustomCursor() {
         observer.observe(document.body, { childList: true, subtree: true });
 
         return () => {
+            window.removeEventListener('resize', checkMobile);
             window.removeEventListener("mousemove", move);
             document.querySelectorAll("a, button").forEach((el) => {
                 el.removeEventListener("mouseenter", handleLinkHover);
@@ -71,6 +81,9 @@ export default function CustomCursor() {
             unsubscribeY();
         };
     }, [velocityX, velocityY, scaleX, scaleY]);
+
+    // Don't render cursor on mobile devices
+    if (isMobile) return null;
 
     return (
         <>

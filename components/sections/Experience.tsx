@@ -28,14 +28,14 @@ const experience = [
 
 export default function Experience() {
     return (
-        <section id="experience">
-            <div className="max-w-4xl mx-auto px-6">
+        <section id="experience" className="min-h-screen flex items-center py-16 sm:py-20">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 w-full">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     viewport={{ once: true }}
-                    className="mb-8"
+                    className="mb-6 sm:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
                 >
                     Experience
                 </motion.h2>
@@ -52,39 +52,40 @@ export default function Experience() {
                                 ease: [0.16, 1, 0.3, 1],
                             }}
                             viewport={{ once: true }}
-                            className="py-6 border-b border-[#1d1d1f] flex gap-4"
+                            className="py-4 sm:py-6 border-b border-[#1d1d1f] flex gap-3 sm:gap-4"
                         >
-                            <div className="shrink-0 w-16 h-full flex items-start pt-1">
-                                <div className="w-16 h-16 bg-[#1d1d1f6d] rounded-xl flex items-center justify-center">
+                            <div className="shrink-0 w-12 sm:w-16 h-full flex items-start pt-0.5 sm:pt-1">
+                                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#1d1d1f6d] rounded-lg sm:rounded-xl flex items-center justify-center">
                                     {exp.logo ? (
                                         <Image
                                             width={32}
                                             height={32}
                                             src={exp.logo}
                                             alt={`${exp.company} logo`}
-                                            className="w-10 h-10 object-contain"
+                                            className="w-7 h-7 sm:w-10 sm:h-10 object-contain"
                                         />
                                     ) : (
-                                        exp.company.charAt(0)
+                                        <span className="text-lg sm:text-xl font-semibold">
+                                            {exp.company.charAt(0)}
+                                        </span>
                                     )}
                                 </div>
                             </div>
                             <div className="flex-1 min-w-0">
-                                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-8 mb-4">
-                                    <h3 className="flex items-center gap-2 text-xl font-semibold tracking-tight leading-tight">
-                                        {exp.role}{" "}
-                                        <span
-                                            className="text-[#c7c7c7] text-sm font-normal
-                                        "
-                                        >
-                                            {exp.company}
+                                <div className="flex flex-col gap-1 sm:gap-2 mb-2 sm:mb-4">
+                                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-8">
+                                        <h3 className="flex flex-col sm:flex-row sm:items-center sm:gap-2 text-base sm:text-lg md:text-xl font-semibold tracking-tight leading-tight">
+                                            <span>{exp.role}</span>
+                                            <span className="text-[#c7c7c7] text-sm sm:text-base font-normal">
+                                                {exp.company}
+                                            </span>
+                                        </h3>
+                                        <span className="text-[#6e6e73] text-xs sm:text-sm whitespace-nowrap">
+                                            {exp.date}
                                         </span>
-                                    </h3>
-                                    <span className="text-[#6e6e73] text-sm whitespace-nowrap">
-                                        {exp.date}
-                                    </span>
+                                    </div>
                                 </div>
-                                <p className="text-[#86868b] text-base leading-relaxed max-w-2xl">
+                                <p className="text-[#86868b] text-sm sm:text-base leading-relaxed">
                                     {exp.desc}
                                 </p>
                             </div>

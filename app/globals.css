@@ -24,12 +24,14 @@
         -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Hide default cursor */
-    html,
-    body,
-    a,
-    button {
-        cursor: none !important;
+    /* Hide default cursor - only on desktop */
+    @media (min-width: 768px) {
+        html,
+        body,
+        a,
+        button {
+            cursor: none !important;
+        }
     }
 
     body {

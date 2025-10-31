@@ -5,6 +5,7 @@ import { Providers } from "./providers";
 import CustomCursor from "@/components/ui/CustomCursor";
 import GlowBackground from "@/components/ui/GlowBackground";
 import Navigation from "@/components/ui/Navigation";
+import MobileNavigation from "@/components/ui/MobileNavigation";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
                 <Providers>
                     <GlowBackground />
                     <Navigation />
+                    <MobileNavigation />
                     {children}
                     <CustomCursor />
                 </Providers>

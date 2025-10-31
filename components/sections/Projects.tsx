@@ -58,14 +58,14 @@ const getBadgeStyles = (type: BadgeType) => {
 
 export default function Projects() {
     return (
-        <section id="projects">
-            <div className="max-w-4xl mx-auto px-6">
+        <section id="projects" className="min-h-screen flex items-center py-16 sm:py-20">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 w-full">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     viewport={{ once: true }}
-                    className="mb-8"
+                    className="mb-6 sm:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
                 >
                     Selected Work
                 </motion.h2>
@@ -89,12 +89,12 @@ export default function Projects() {
                                 ease: [0.16, 1, 0.3, 1],
                             }}
                             viewport={{ once: true }}
-                            className="group block py-6 border-b border-[#1d1d1f] hover:border-[#3a3a3a] transition-colors duration-300"
+                            className="group block py-4 sm:py-6 border-b border-[#1d1d1f] hover:border-[#3a3a3a] active:border-[#3a3a3a] transition-colors duration-300 touch-manipulation"
                         >
-                            <div className="flex items-start justify-between gap-12">
-                                <div className="flex-1 space-y-3">
-                                    <div className="flex items-center gap-3 flex-wrap">
-                                        <h3 className="text-2xl font-semibold tracking-tight leading-tight">
+                            <div className="flex items-start justify-between gap-3 sm:gap-6 md:gap-12">
+                                <div className="flex-1 space-y-2 sm:space-y-3 min-w-0">
+                                    <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+                                        <h3 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight leading-tight">
                                             {project.title}
                                         </h3>
                                         {project.badge &&
@@ -113,7 +113,7 @@ export default function Projects() {
                                                         duration: 0.3,
                                                     }}
                                                     viewport={{ once: true }}
-                                                    className={`px-3 py-1 text-xs font-semibold rounded-full border backdrop-blur-sm transition-all duration-300 ${
+                                                    className={`px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-semibold rounded-full border backdrop-blur-sm transition-all duration-300 ${
                                                         getBadgeStyles(
                                                             project.badge
                                                         )?.className
@@ -127,21 +127,21 @@ export default function Projects() {
                                                 </motion.span>
                                             )}
                                     </div>
-                                    <p className="text-[#86868b] text-base leading-relaxed max-w-xl">
+                                    <p className="text-[#86868b] text-sm sm:text-base leading-relaxed">
                                         {project.desc}
                                     </p>
                                 </div>
                                 {project.link.startsWith("http") && (
                                     <svg
-                                        width="20"
-                                        height="20"
+                                        width="18"
+                                        height="18"
                                         viewBox="0 0 24 24"
                                         fill="none"
                                         stroke="currentColor"
                                         strokeWidth="2"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
-                                        className="text-[#6e6e73] group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 flex-shrink-0 mt-1.5"
+                                        className="text-[#6e6e73] group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 flex-shrink-0 mt-0.5 sm:mt-1.5 sm:w-5 sm:h-5"
                                     >
                                         <line
                                             x1="7"
