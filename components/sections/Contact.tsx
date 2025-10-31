@@ -1,9 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Contact() {
     return (
-        <section id="contact" className="min-h-screen flex items-center py-16 sm:py-20 pb-28 sm:pb-20">
+        <section
+            id="contact"
+            className="relative min-h-screen flex items-center justify-center py-16 sm:py-20 pb-28 sm:pb-20"
+        >
             <div className="max-w-4xl mx-auto px-4 sm:px-6 w-full">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -49,6 +53,17 @@ export default function Contact() {
                         </div>
                     </div>
                 </motion.div>
+            </div>
+
+            {/* Logo pinned near bottom */}
+            <div className="absolute bottom-32 sm:bottom-6 left-1/2 -translate-x-1/2">
+                <Image
+                    src="/AS_logo.svg"
+                    alt="Álex Santos Logo"
+                    width={65}
+                    height={65}
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 select-none pointer-events-none"
+                />
             </div>
         </section>
     );

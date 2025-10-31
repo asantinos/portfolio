@@ -99,7 +99,7 @@ export default function MobileNavigation() {
                                                 {activeSection === index && (
                                                     <motion.div
                                                         layoutId="activeIndicator"
-                                                        className="ml-auto w-2 h-2 rounded-full bg-[#0071e3]"
+                                                        className="ml-auto w-2 h-2 rounded-full bg-white"
                                                         transition={{
                                                             type: "spring",
                                                             stiffness: 380,
@@ -180,7 +180,7 @@ export default function MobileNavigation() {
                                         <motion.div
                                             className={`rounded-full transition-all ${
                                                 activeSection === index
-                                                    ? "bg-[#0071e3] w-6 h-1.5"
+                                                    ? "bg-white w-6 h-1.5"
                                                     : "bg-[#424245] w-1.5 h-1.5"
                                             }`}
                                             animate={{
