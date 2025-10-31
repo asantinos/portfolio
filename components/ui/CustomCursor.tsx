@@ -76,7 +76,7 @@ export default function CustomCursor() {
         <>
             {/* Main cursor dot with liquid morph */}
             <motion.div
-                className="pointer-events-none fixed top-0 left-0 z-50"
+                className="pointer-events-none fixed top-0 left-0 z-999"
                 style={{
                     x: cursorX,
                     y: cursorY,

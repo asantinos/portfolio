@@ -13,7 +13,7 @@ export default function Contact() {
                     className="text-center space-y-12"
                 >
                     <h2 className="leading-tight">
-                        Let's work together.
+                        Let&apos;s work together.
                     </h2>
 
                     <div className="space-y-8">
@@ -21,7 +21,7 @@ export default function Contact() {
                             href="mailto:hello@asantinos.com"
                             className="inline-block text-[#86868b] text-lg hover:text-white transition-colors duration-300"
                         >
-                            hello@asantinos.com
+                            aleexsantos1509@gmail.com
                         </a>
 
                         <div className="flex justify-center items-center gap-8 text-sm">
