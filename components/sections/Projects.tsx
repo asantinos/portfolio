@@ -144,11 +144,11 @@ export default function ProjectsSection() {
                                             "linkedin",
                                             p.links.linkedin
                                         )}
-                                    {p.links.external &&
+                                    {/* {p.links.external &&
                                         renderLinkIcon(
                                             "external",
                                             p.links.external
-                                        )}
+                                        )} */}
                                 </div>
                             )}
                         </div>
