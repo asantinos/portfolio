@@ -14,7 +14,7 @@ export default function ProjectsSection() {
             description:
                 "My Shopify-focused CRO agency. I design, build, and test experiences that improve conversion and reduce user friction.",
             tags: ["Shopify", "CRO", "A/B Testing", "UX"],
-            image: "/img/project_01.jpg",
+            image: "/img/riqo_white.webp",
             links: {
                 website: "https://riqoagency.com",
                 instagram: "https://instagram.com/riqoagency",
@@ -27,7 +27,7 @@ export default function ProjectsSection() {
             description:
                 "A new project I’m currently exploring. More details soon.",
             tags: ["SaaS", "Concept", "Prototype"],
-            image: "/img/blur.png",
+            image: "/img/blur.webp",
             links: {},
         },
     ];
