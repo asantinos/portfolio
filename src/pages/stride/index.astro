@@ -26,12 +26,10 @@ const pressKitUrl = ""; // optional, e.g. "/stride/press-kit"
                 <div class="mx-auto flex items-center justify-center">
                     <!-- Icon placeholder (swap src when you have it) -->
                     <div
-                        class="h-20 w-20 rounded-2xl bg-[#3474cf] ring-1 ring-neutral-800 flex items-center justify-center"
+                        class="h-22 w-22 rounded-2xl bg-[#3474cf] ring-1 ring-neutral-800 flex items-center justify-center overflow-hidden"
                         aria-hidden="true"
                     >
-                        <span class="text-neutral-300 text-2xl font-semibold"
-                            >S</span
-                        >
+                        <img src="/stride-icon.png" alt="Stride Logo">
                     </div>
                 </div>
 
@@ -51,8 +49,9 @@ const pressKitUrl = ""; // optional, e.g. "/stride/press-kit"
                         appStoreUrl ? (
                             <a
                                 href={appStoreUrl}
-                                class="inline-flex items-center justify-center rounded-xl bg-neutral-100 px-5 py-3 text-sm font-semibold text-neutral-900 hover:bg-white transition-colors"
+                                class="inline-flex items-center justify-center gap-2 rounded-xl bg-neutral-100 px-5 py-3 text-sm font-semibold text-neutral-900 hover:bg-white transition-colors"
                             >
+                                <img src="/apple.svg" alt="Apple Logo" class="h-5" />
                                 Download on the App Store
                             </a>
                         ) : (
@@ -138,9 +137,7 @@ const pressKitUrl = ""; // optional, e.g. "/stride/press-kit"
                         <div
                             class="aspect-9/19 flex items-center justify-center"
                         >
-                            <span class="text-neutral-500 text-sm"
-                                >Today screen (placeholder)</span
-                            >
+                            <img src="/screenshots/today_ss.PNG" alt="Today Screen Screenshot">
                         </div>
                         <div class="px-4 py-3 border-t border-neutral-800">
                             <p class="text-sm text-neutral-400">Today</p>
@@ -154,9 +151,7 @@ const pressKitUrl = ""; // optional, e.g. "/stride/press-kit"
                         <div
                             class="aspect-9/19 flex items-center justify-center"
                         >
-                            <span class="text-neutral-500 text-sm"
-                                >History (placeholder)</span
-                            >
+                        <img src="/screenshots/history_week_ss.PNG" alt="History Screen Screenshot">
                         </div>
                         <div class="px-4 py-3 border-t border-neutral-800">
                             <p class="text-sm text-neutral-400">History</p>
@@ -170,9 +165,7 @@ const pressKitUrl = ""; // optional, e.g. "/stride/press-kit"
                         <div
                             class="aspect-9/19 flex items-center justify-center"
                         >
-                            <span class="text-neutral-500 text-sm"
-                                >Settings (placeholder)</span
-                            >
+                        <img src="/screenshots/settings_ss.PNG" alt="Settings Screen Screenshot">
                         </div>
                         <div class="px-4 py-3 border-t border-neutral-800">
                             <p class="text-sm text-neutral-400">Settings</p>
@@ -184,10 +177,8 @@ const pressKitUrl = ""; // optional, e.g. "/stride/press-kit"
                 <div
                     class="mt-6 rounded-2xl bg-neutral-900/30 ring-1 ring-neutral-800 overflow-hidden"
                 >
-                    <div class="aspect-16/6 flex items-center justify-center">
-                        <span class="text-neutral-500 text-sm"
-                            >Hero image / promo banner (optional)</span
-                        >
+                    <div class="flex items-center justify-center bg-cover">
+                        <img src="/horizontal-banner.jpeg" alt="Settings Screen Screenshot" class="h-full bg-cover">
                     </div>
                 </div>
 
