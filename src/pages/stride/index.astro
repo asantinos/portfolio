@@ -1,5 +1,5 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Layout from "../../layouts/StrideLayout.astro";
 
 const appName = "Stride";
 const tagline = "A calm, minimal step tracker.";
@@ -29,7 +29,7 @@ const pressKitUrl = ""; // optional, e.g. "/stride/press-kit"
                         class="h-22 w-22 rounded-2xl bg-[#3474cf] ring-1 ring-neutral-800 flex items-center justify-center overflow-hidden"
                         aria-hidden="true"
                     >
-                        <img src="/stride-icon.png" alt="Stride Logo">
+                        <img src="/icons/stride.png" alt="Stride Logo">
                     </div>
                 </div>
 
@@ -51,7 +51,7 @@ const pressKitUrl = ""; // optional, e.g. "/stride/press-kit"
                                 href={appStoreUrl}
                                 class="inline-flex items-center justify-center gap-2 rounded-xl bg-neutral-100 px-5 py-3 text-sm font-semibold text-neutral-900 hover:bg-white transition-colors"
                             >
-                                <img src="/apple.svg" alt="Apple Logo" class="h-5" />
+                                <img src="/icons/apple.svg" alt="Apple Logo" class="h-5" />
                                 Download on the App Store
                             </a>
                         ) : (
@@ -178,7 +178,7 @@ const pressKitUrl = ""; // optional, e.g. "/stride/press-kit"
                     class="mt-6 rounded-2xl bg-neutral-900/30 ring-1 ring-neutral-800 overflow-hidden"
                 >
                     <div class="flex items-center justify-center bg-cover">
-                        <img src="/horizontal-banner.jpeg" alt="Settings Screen Screenshot" class="h-full bg-cover">
+                        <img src="/banners/horizontal-banner.jpeg" alt="Settings Screen Screenshot" class="h-full bg-cover">
                     </div>
                 </div>
 
