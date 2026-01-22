@@ -1,0 +1,217 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const appName = "Stride";
+const tagline = "A calm, minimal step tracker.";
+const description =
+    "See today’s steps at a glance, set a daily goal, and review your week, month, and year — all in a clean, focused interface.";
+
+const featureList = [
+    "Today at a glance: steps, goal, and remaining",
+    "History views: week, month, and year",
+    "Goal & appearance settings (Light / Dark / System)",
+    "Apple Health integration (on-device only)",
+    "No accounts. No ads. No tracking",
+];
+
+// Leave these empty for now; replace when available
+const appStoreUrl = ""; // e.g. "https://apps.apple.com/app/idXXXXXXXXXX"
+const pressKitUrl = ""; // optional, e.g. "/stride/press-kit"
+---
+
+<Layout title={`${appName} - Simple Pedometer`} description={tagline}>
+    <main class="min-h-screen px-6 py-16">
+        <div class="max-w-3xl mx-auto">
+            <header class="text-center">
+                <div class="mx-auto flex items-center justify-center">
+                    <!-- Icon placeholder (swap src when you have it) -->
+                    <div
+                        class="h-20 w-20 rounded-2xl bg-[#3474cf] ring-1 ring-neutral-800 flex items-center justify-center"
+                        aria-hidden="true"
+                    >
+                        <span class="text-neutral-300 text-2xl font-semibold"
+                            >S</span
+                        >
+                    </div>
+                </div>
+
+                <h1 class="mt-8 text-4xl font-bold tracking-tight sm:text-5xl">
+                    {appName}
+                </h1>
+                <p class="mt-4 text-lg text-neutral-400">{tagline}</p>
+
+                <p class="mt-6 text-neutral-400 max-w-2xl mx-auto">
+                    {description}
+                </p>
+
+                <div
+                    class="mt-8 flex flex-col sm:flex-row gap-3 justify-center"
+                >
+                    {
+                        appStoreUrl ? (
+                            <a
+                                href={appStoreUrl}
+                                class="inline-flex items-center justify-center rounded-xl bg-neutral-100 px-5 py-3 text-sm font-semibold text-neutral-900 hover:bg-white transition-colors"
+                            >
+                                Download on the App Store
+                            </a>
+                        ) : (
+                            <button
+                                class="inline-flex items-center justify-center rounded-xl bg-neutral-100/10 px-5 py-3 text-sm font-semibold text-neutral-200 ring-1 ring-neutral-800 cursor-not-allowed"
+                                disabled
+                                title="Add your App Store link when ready"
+                            >
+                                App Store link coming soon
+                            </button>
+                        )
+                    }
+
+                    <a
+                        href="/stride/privacy-policy"
+                        class="inline-flex items-center justify-center rounded-xl bg-transparent px-5 py-3 text-sm font-semibold text-neutral-200 ring-1 ring-neutral-800 hover:bg-neutral-900/30 transition-colors"
+                    >
+                        Privacy Policy
+                    </a>
+
+                    {
+                        pressKitUrl ? (
+                            <a
+                                href={pressKitUrl}
+                                class="inline-flex items-center justify-center rounded-xl bg-transparent px-5 py-3 text-sm font-semibold text-neutral-200 ring-1 ring-neutral-800 hover:bg-neutral-900/30 transition-colors"
+                            >
+                                Press kit
+                            </a>
+                        ) : null
+                    }
+                </div>
+            </header>
+
+            <section class="mt-14 grid gap-6 sm:grid-cols-2">
+                <div
+                    class="rounded-2xl bg-neutral-900/30 ring-1 ring-neutral-800 p-6"
+                >
+                    <h2 class="text-lg font-semibold text-neutral-100">
+                        What it does
+                    </h2>
+                    <ul class="mt-4 space-y-3 text-neutral-400">
+                        {
+                            featureList.map((item) => (
+                                <li class="leading-relaxed">• {item}</li>
+                            ))
+                        }
+                    </ul>
+                </div>
+
+                <div
+                    class="rounded-2xl bg-neutral-900/30 ring-1 ring-neutral-800 p-6"
+                >
+                    <h2 class="text-lg font-semibold text-neutral-100">
+                        Privacy-first
+                    </h2>
+                    <p class="mt-4 text-neutral-400 leading-relaxed">
+                        Stride reads your step count from Apple Health (with
+                        your permission) and uses it only to show your progress.
+                        Data stays on your device — no accounts, no tracking, no
+                        analytics.
+                    </p>
+                    <p class="mt-4 text-neutral-500 text-sm leading-relaxed">
+                        You can revoke Health access anytime in iOS Settings.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Screenshots section (placeholders) -->
+            <section class="mt-14">
+                <div class="flex items-end justify-between gap-4">
+                    <div>
+                        <h2 class="text-xl font-semibold text-neutral-100">
+                            Screenshots
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="mt-6 grid gap-4 sm:grid-cols-3">
+                    <!-- 1 -->
+                    <div
+                        class="rounded-2xl bg-neutral-900/30 ring-1 ring-neutral-800 overflow-hidden"
+                    >
+                        <div
+                            class="aspect-9/19 flex items-center justify-center"
+                        >
+                            <span class="text-neutral-500 text-sm"
+                                >Today screen (placeholder)</span
+                            >
+                        </div>
+                        <div class="px-4 py-3 border-t border-neutral-800">
+                            <p class="text-sm text-neutral-400">Today</p>
+                        </div>
+                    </div>
+
+                    <!-- 2 -->
+                    <div
+                        class="rounded-2xl bg-neutral-900/30 ring-1 ring-neutral-800 overflow-hidden"
+                    >
+                        <div
+                            class="aspect-9/19 flex items-center justify-center"
+                        >
+                            <span class="text-neutral-500 text-sm"
+                                >History (placeholder)</span
+                            >
+                        </div>
+                        <div class="px-4 py-3 border-t border-neutral-800">
+                            <p class="text-sm text-neutral-400">History</p>
+                        </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div
+                        class="rounded-2xl bg-neutral-900/30 ring-1 ring-neutral-800 overflow-hidden"
+                    >
+                        <div
+                            class="aspect-9/19 flex items-center justify-center"
+                        >
+                            <span class="text-neutral-500 text-sm"
+                                >Settings (placeholder)</span
+                            >
+                        </div>
+                        <div class="px-4 py-3 border-t border-neutral-800">
+                            <p class="text-sm text-neutral-400">Settings</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Optional wide banner / hero image placeholder -->
+                <div
+                    class="mt-6 rounded-2xl bg-neutral-900/30 ring-1 ring-neutral-800 overflow-hidden"
+                >
+                    <div class="aspect-16/6 flex items-center justify-center">
+                        <span class="text-neutral-500 text-sm"
+                            >Hero image / promo banner (optional)</span
+                        >
+                    </div>
+                </div>
+
+                <!-- Notes for future replacement (no visible clutter) -->
+                <!--
+					When you have images, replace the placeholder blocks with:
+					<img src="/stride/images/today.png" alt="Stride Today screen" class="w-full h-full object-cover" />
+					and similarly for history/settings.
+				-->
+            </section>
+
+            <footer class="mt-16 text-center">
+                <p class="text-sm text-neutral-500">
+                    © {new Date().getFullYear()} álex santos
+                </p>
+                <div class="mt-3 flex items-center justify-center gap-4">
+                    <a
+                        href="https://asantinos.com"
+                        class="text-sm text-neutral-500 hover:text-neutral-300 transition-colors"
+                    >
+                        asantinos.com
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </main>
+</Layout>
