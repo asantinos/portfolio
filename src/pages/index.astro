@@ -5,10 +5,17 @@ const name = "ALEX SANTOS";
 const title = "SOFTWARE DEV";
 
 const menuItems = [
-    { label: "ABOUT", href: "#" },
+    { label: "ABOUT", href: "#", id: "about-btn" },
     { label: "STRIDE", href: "/stride" },
     { label: "CONTACT", href: "mailto:hello@asantinos.com" },
-    { label: "LINKS", href: "#" },
+    { label: "LINKS", href: "#", id: "links-btn" },
+];
+
+const aboutInfo = [
+    "DEV FROM SPAIN",
+    "iOS & WEB APPS",
+    "JAVASCRIPT LOVER",
+    "UI/UX MINIMALIST",
 ];
 
 const socials = [
@@ -43,8 +50,8 @@ const socials = [
                         <!-- Screen -->
                         <div class="screen">
                             <div class="screen-inner">
-                                <!-- Game content -->
-                                <div class="game-content">
+                                <!-- Game content - Main Menu -->
+                                <div class="game-content" id="main-screen">
                                     <div class="title-section">
                                         <p class="game-title">{name}</p>
                                         <p class="game-subtitle">{title}</p>
@@ -52,7 +59,7 @@ const socials = [
 
                                     <nav class="menu">
                                         {menuItems.map((item, i) => (
-                                            <a href={item.href} class="menu-item" data-index={i}>
+                                            <a href={item.href} class="menu-item" data-index={i} id={item.id || ""}>
                                                 <span class="cursor">▶</span>
                                                 <span>{item.label}</span>
                                             </a>
@@ -60,6 +67,24 @@ const socials = [
                                     </nav>
 
                                     <p class="press-start">PRESS START</p>
+                                </div>
+
+                                <!-- Game content - About Screen -->
+                                <div class="game-content hidden" id="about-screen">
+                                    <div class="title-section">
+                                        <p class="game-title">ABOUT ME</p>
+                                    </div>
+
+                                    <div class="about-list">
+                                        {aboutInfo.map((info) => (
+                                            <p class="about-item">{info}</p>
+                                        ))}
+                                    </div>
+
+                                    <button class="back-btn" id="back-btn">
+                                        <span>◀</span>
+                                        <span>BACK</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -258,7 +283,7 @@ const socials = [
         padding: 14px 10px 10px;
         display: flex;
         flex-direction: column;
-        min-height: 138px;
+        height: 200px;
     }
 
     .title-section {
@@ -568,6 +593,48 @@ const socials = [
         color: #9a9aaa;
     }
 
+    .hidden {
+        display: none !important;
+    }
+
+    .about-list {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .about-item {
+        font-family: 'Press Start 2P', monospace;
+        font-size: 7px;
+        color: #2a3420;
+        padding: 3px 6px;
+    }
+
+    .back-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Press Start 2P', monospace;
+        font-size: 8px;
+        color: #2a3420;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 3px 6px;
+        margin-top: 12px;
+        border-radius: 2px;
+        transition: background 0.15s;
+    }
+
+    .back-btn:hover {
+        background: #8a9660;
+    }
+
+    .back-btn span:first-child {
+        font-size: 7px;
+    }
+
     @media (min-width: 640px) {
         .cartridge-slot {
             width: 310px;
@@ -633,3 +700,23 @@ const socials = [
         }
     }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mainScreen = document.getElementById('main-screen');
+        const aboutScreen = document.getElementById('about-screen');
+        const aboutBtn = document.getElementById('about-btn');
+        const backBtn = document.getElementById('back-btn');
+
+        aboutBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            mainScreen?.classList.add('hidden');
+            aboutScreen?.classList.remove('hidden');
+        });
+
+        backBtn?.addEventListener('click', () => {
+            aboutScreen?.classList.add('hidden');
+            mainScreen?.classList.remove('hidden');
+        });
+    });
+</script>
