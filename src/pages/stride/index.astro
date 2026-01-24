@@ -1,327 +1,182 @@
 ---
 import Layout from "../../layouts/StrideLayout.astro";
 
-const appName = "Stride";
+const appName = "Stride - Simple Pedometer";
 const tagline = "A calm, minimal step tracker.";
-const description =
-    "See today’s steps at a glance, set a daily goal, and review your week, month, and year — all in a clean, focused interface.";
+const subtitle = "Minimal step tracker";
+const developer = "asantinos";
 
-const featureList = [
-    "Today at a glance: steps, goal, and remaining",
-    "History views: week, month, and year",
-    "Goal & appearance settings (Light / Dark / System)",
-    "Apple Health integration (on-device only)",
-    "No accounts. No ads. No tracking",
+const APPLE_ID = "6758142883";
+
+const appStoreUrl = "";
+// const appStoreUrl = `https://apps.apple.com/app/id${APPLE_ID}`;
+
+const features = [
+  "Today's steps at a glance",
+  "Customizable daily goal",
+  "Week, month & year history",
+  "Light, Dark & System themes",
+  "Apple Health integration",
+  "No accounts, no ads, no tracking",
 ];
 
-const currentFeatures = [
-    {
-        title: "Step Tracking",
-        icon: "footprints",
-        items: [
-            "Automatic tracking via Apple Health",
-            "Today's steps at a glance",
-            "Customizable daily goal",
-        ],
-    },
-    {
-        title: "Insights",
-        icon: "chart",
-        items: [
-            "Weekly step overview",
-            "Monthly step overview",
-            "Yearly step overview",
-        ],
-    },
-    {
-        title: "Privacy",
-        icon: "shield",
-        items: [
-            "No accounts or sign-up required",
-            "On-device data only",
-            "No analytics or tracking",
-        ],
-    },
+const roadmap = [
+  { text: "Home screen widgets", done: false },
+  { text: "Achievements & badges", done: false },
+  { text: "Distance & calories tracking", done: false },
+  { text: "Streak tracking", done: false },
+  { text: "Custom app icons", done: false },
 ];
 
-const roadmapFeatures = [
-    { text: "Home screen widgets", done: false },
-    // { text: "Apple Watch app", done: false },
-    // { text: "Daily reminders & notifications", done: false },
-    { text: "Achievements & badges", done: false },
-    { text: "Distance & calories tracking", done: false },
-    { text: "Streak tracking", done: false },
-    { text: "Weekly summary reports", done: false },
-    { text: "Custom app icons", done: false },
+const changelog = [
+  {
+    version: "1.0.0",
+    date: "Coming Soon",
+    changes: ["Initial release"],
+  },
 ];
-
-// Leave these empty for now; replace when available
-const appStoreUrl = ""; // e.g. "https://apps.apple.com/app/idXXXXXXXXXX"
-const pressKitUrl = ""; // optional, e.g. "/stride/press-kit"
 ---
 
-<Layout title={`${appName} - Simple Pedometer`} description={tagline}>
-    <main class="min-h-screen px-6 py-16">
-        <div class="max-w-3xl mx-auto">
-            <header class="text-center">
-                <div class="mx-auto flex items-center justify-center">
-                    <div
-                        class="h-22 w-22 rounded-2xl bg-[#3474cf] ring-1 ring-neutral-800 flex items-center justify-center overflow-hidden"
-                        aria-hidden="true"
-                    >
-                        <img src="/icons/stride.png" alt="Stride Logo">
-                    </div>
-                </div>
-
-                <h1 class="mt-8 text-4xl font-bold tracking-tight sm:text-5xl">
-                    {appName}
-                </h1>
-                <p class="mt-4 text-lg text-neutral-400">{tagline}</p>
-
-                <p class="mt-6 text-neutral-400 max-w-2xl mx-auto">
-                    {description}
-                </p>
-
-                <div
-                    class="mt-8 flex flex-col sm:flex-row gap-3 justify-center"
-                >
-                    {
-                        appStoreUrl ? (
-                            <a
-                                href={appStoreUrl}
-                                class="inline-flex items-center justify-center gap-2 rounded-xl bg-neutral-100 px-5 py-3 text-sm font-semibold text-neutral-900 hover:bg-white transition-colors"
-                            >
-                                <img src="/icons/apple.svg" alt="Apple Logo" class="h-5" />
-                                Download on the App Store
-                            </a>
-                        ) : (
-                            <button
-                                class="inline-flex items-center justify-center rounded-xl bg-neutral-100/10 px-5 py-3 text-sm font-semibold text-neutral-200 ring-1 ring-neutral-800 cursor-not-allowed"
-                                disabled
-                                title="Add your App Store link when ready"
-                            >
-                                App Store link coming soon
-                            </button>
-                        )
-                    }
-
-                    <a
-                        href="/stride/privacy"
-                        class="inline-flex items-center justify-center rounded-xl bg-transparent px-5 py-3 text-sm font-semibold text-neutral-200 ring-1 ring-neutral-800 hover:bg-neutral-900/30 transition-colors"
-                    >
-                        Privacy Policy
-                    </a>
-
-                    {
-                        pressKitUrl ? (
-                            <a
-                                href={pressKitUrl}
-                                class="inline-flex items-center justify-center rounded-xl bg-transparent px-5 py-3 text-sm font-semibold text-neutral-200 ring-1 ring-neutral-800 hover:bg-neutral-900/30 transition-colors"
-                            >
-                                Press kit
-                            </a>
-                        ) : null
-                    }
-                </div>
-            </header>
-
-            <section class="mt-14 grid gap-6 sm:grid-cols-2">
-                <div
-                    class="rounded-2xl bg-neutral-900/30 ring-1 ring-neutral-800 p-6"
-                >
-                    <h2 class="text-lg font-semibold text-neutral-100">
-                        What it does
-                    </h2>
-                    <ul class="mt-4 space-y-3 text-neutral-400">
-                        {
-                            featureList.map((item) => (
-                                <li class="leading-relaxed">• {item}</li>
-                            ))
-                        }
-                    </ul>
-                </div>
-
-                <div
-                    class="rounded-2xl bg-neutral-900/30 ring-1 ring-neutral-800 p-6"
-                >
-                    <h2 class="text-lg font-semibold text-neutral-100">
-                        Privacy-first
-                    </h2>
-                    <p class="mt-4 text-neutral-400 leading-relaxed">
-                        Stride reads your step count from Apple Health (with
-                        your permission) and uses it only to show your progress.
-                        Data stays on your device — no accounts, no tracking, no
-                        analytics.
-                    </p>
-                    <p class="mt-4 text-neutral-500 text-sm leading-relaxed">
-                        You can revoke Health access anytime in iOS Settings.
-                    </p>
-                </div>
-            </section>
-
-            <!-- Current Features Section -->
-            <section class="mt-14">
-                <h2 class="text-xl font-semibold text-neutral-100 mb-6">
-                    Features
-                </h2>
-                <div class="grid gap-4 sm:grid-cols-3">
-                    {
-                        currentFeatures.map((feature) => (
-                            <div class="rounded-2xl bg-neutral-900/30 ring-1 ring-neutral-800 p-6">
-                                <div class="flex items-center gap-3 mb-4">
-                                    {feature.icon === "footprints" && (
-                                        <div class="h-10 w-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                            </svg>
-                                        </div>
-                                    )}
-                                    {feature.icon === "chart" && (
-                                        <div class="h-10 w-10 rounded-xl bg-green-500/20 flex items-center justify-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                                            </svg>
-                                        </div>
-                                    )}
-                                    {feature.icon === "shield" && (
-                                        <div class="h-10 w-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                            </svg>
-                                        </div>
-                                    )}
-                                    <h3 class="text-lg font-semibold text-neutral-100">
-                                        {feature.title}
-                                    </h3>
-                                </div>
-                                <ul class="space-y-2">
-                                    {feature.items.map((item) => (
-                                        <li class="text-neutral-400 text-sm leading-relaxed flex items-start gap-2">
-                                            <span class="text-neutral-600 mt-1">•</span>
-                                            {item}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))
-                    }
-                </div>
-            </section>
-
-            <!-- Roadmap Section -->
-            <section class="mt-14">
-                <h2 class="text-xl font-semibold text-neutral-100 mb-6">
-                    Roadmap
-                </h2>
-                <div class="rounded-2xl bg-neutral-900/30 ring-1 ring-neutral-800 p-6">
-                    <p class="text-neutral-500 text-sm mb-5">
-                        Planned features for future updates
-                    </p>
-                    <div class="grid gap-3 sm:grid-cols-2">
-                        {
-                            roadmapFeatures.map((feature) => (
-                                <div class="flex items-center gap-3">
-                                    <div class={`h-5 w-5 rounded flex items-center justify-center ring-1 ${feature.done ? 'bg-green-500/20 ring-green-500/50' : 'bg-neutral-800/50 ring-neutral-700'}`}>
-                                        {feature.done ? (
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                        ) : null}
-                                    </div>
-                                    <span class={`text-sm ${feature.done ? 'text-neutral-300' : 'text-neutral-400'}`}>
-                                        {feature.text}
-                                    </span>
-                                </div>
-                            ))
-                        }
-                    </div>
-                </div>
-            </section>
-
-            <!-- Screenshots section (placeholders) -->
-            <section class="mt-14">
-                <div class="flex items-end justify-between gap-4">
-                    <div>
-                        <h2 class="text-xl font-semibold text-neutral-100">
-                            Screenshots
-                        </h2>
-                    </div>
-                </div>
-
-                <div class="mt-6 grid gap-4 sm:grid-cols-3">
-                    <!-- 1 -->
-                    <div
-                        class="rounded-2xl bg-neutral-900/30 ring-1 ring-neutral-800 overflow-hidden"
-                    >
-                        <div
-                            class="aspect-9/19 flex items-center justify-center"
-                        >
-                            <img src="/stride/screenshots/today.PNG" alt="Today Screen Screenshot">
-                        </div>
-                        <div class="px-4 py-3 border-t border-neutral-800">
-                            <p class="text-sm text-neutral-400">Today</p>
-                        </div>
-                    </div>
-
-                    <!-- 2 -->
-                    <div
-                        class="rounded-2xl bg-neutral-900/30 ring-1 ring-neutral-800 overflow-hidden"
-                    >
-                        <div
-                            class="aspect-9/19 flex items-center justify-center"
-                        >
-                        <img src="/stride/screenshots/history.PNG" alt="History Screen Screenshot">
-                        </div>
-                        <div class="px-4 py-3 border-t border-neutral-800">
-                            <p class="text-sm text-neutral-400">History</p>
-                        </div>
-                    </div>
-
-                    <!-- 3 -->
-                    <div
-                        class="rounded-2xl bg-neutral-900/30 ring-1 ring-neutral-800 overflow-hidden"
-                    >
-                        <div
-                            class="aspect-9/19 flex items-center justify-center"
-                        >
-                        <img src="/stride/screenshots/settings.PNG" alt="Settings Screen Screenshot">
-                        </div>
-                        <div class="px-4 py-3 border-t border-neutral-800">
-                            <p class="text-sm text-neutral-400">Settings</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Optional wide banner / hero image placeholder -->
-                <div
-                    class="mt-6 rounded-2xl bg-neutral-900/30 ring-1 ring-neutral-800 overflow-hidden"
-                >
-                    <div class="flex items-center justify-center bg-cover">
-                        <img src="/stride/banners/horizontal-banner.jpeg" alt="Settings Screen Screenshot" class="h-full bg-cover">
-                    </div>
-                </div>
-
-                <!-- Notes for future replacement (no visible clutter) -->
-                <!--
-					When you have images, replace the placeholder blocks with:
-					<img src="/stride/images/today.png" alt="Stride Today screen" class="w-full h-full object-cover" />
-					and similarly for history/settings.
-				-->
-            </section>
-
-            <footer class="mt-16 text-center">
-                <p class="text-sm text-neutral-500">
-                    © {new Date().getFullYear()} asantinos
-                </p>
-                <div class="mt-3 flex items-center justify-center gap-4">
-                    <a
-                        href="https://asantinos.com"
-                        class="text-sm text-neutral-500 hover:text-neutral-300 transition-colors"
-                    >
-                        asantinos.com
-                    </a>
-                </div>
-            </footer>
+<Layout title={`${appName} - ${subtitle}`} description={tagline}>
+  <main class="min-h-screen px-6 py-16">
+    <div class="max-w-xl mx-auto">
+      <!-- App Store-style Header -->
+      <header class="flex items-start gap-5">
+        <div
+          class="h-32 w-32 shrink-0 rounded-[22px] bg-[#3474cf] ring-1 ring-neutral-800 flex items-center justify-center overflow-hidden"
+        >
+          <img
+            src="/icons/stride.png"
+            alt="Stride Logo"
+            class="w-full h-full"
+          />
         </div>
-    </main>
+
+        <div class="flex-1 min-w-0">
+          <h1 class="text-2xl font-bold tracking-tight">{appName}</h1>
+          <p class="text-sm text-neutral-400 mt-0.5">{subtitle}</p>
+          <p class="text-sm text-neutral-500 mt-1">{developer}</p>
+
+          <div class="mt-3 flex items-center gap-3">
+            {
+              appStoreUrl ? (
+                <a
+                  target="_blank"
+                  href={appStoreUrl}
+                  class="inline-flex items-center gap-1.5 rounded-full bg-blue-500 px-4 py-1.5 text-sm font-semibold text-white hover:bg-blue-400 transition-colors"
+                >
+                  GET
+                </a>
+              ) : (
+                <span class="inline-flex items-center rounded-full bg-neutral-800 px-4 py-1.5 text-sm font-medium text-neutral-400">
+                  Coming Soon
+                </span>
+              )
+            }
+            <a
+              href="/stride/privacy"
+              class="text-sm text-blue-400 hover:text-blue-300 transition-colors"
+            >
+              Privacy Policy
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Description -->
+      <p class="mt-8 text-neutral-300 leading-relaxed">
+        {tagline} See today's steps at a glance, set a daily goal, and review your
+        week, month, and year — all in a clean, focused interface.
+      </p>
+
+      <!-- Features -->
+      <section class="mt-10">
+        <h2 class="text-lg font-semibold mb-4">Features</h2>
+        <ul class="space-y-2">
+          {
+            features.map((feature) => (
+              <li class="text-neutral-400 text-sm flex items-center gap-2">
+                <span class="text-blue-400">•</span>
+                {feature}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <!-- Roadmap -->
+      <section class="mt-10">
+        <h2 class="text-lg font-semibold mb-4">Roadmap</h2>
+        <ul class="space-y-2">
+          {
+            roadmap.map((item) => (
+              <li class="text-sm flex items-center gap-2">
+                <span
+                  class={`w-4 h-4 rounded flex items-center justify-center text-xs ${item.done ? "bg-green-500/20 text-green-400" : "bg-neutral-800 text-neutral-500"}`}
+                >
+                  {item.done ? "✓" : "○"}
+                </span>
+                <span
+                  class={item.done ? "text-neutral-300" : "text-neutral-400"}
+                >
+                  {item.text}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <!-- Changelog -->
+      <section class="mt-10">
+        <h2 class="text-lg font-semibold mb-4">Changelog</h2>
+        <div class="space-y-4">
+          {
+            changelog.map((release) => (
+              <div>
+                <div class="flex items-baseline gap-2">
+                  <span class="text-sm font-medium text-neutral-200">
+                    v{release.version}
+                  </span>
+                  <span class="text-xs text-neutral-500">{release.date}</span>
+                </div>
+                <ul class="mt-1 space-y-1">
+                  {release.changes.map((change) => (
+                    <li class="text-sm text-neutral-400">— {change}</li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="mt-10 pt-8 border-t border-neutral-800">
+        <h2 class="text-lg font-semibold mb-4">Contact</h2>
+        <p class="text-sm text-neutral-400">
+          Questions or feedback? Reach out at{" "}
+          <a
+            href="mailto:hello@asantinos.com"
+            class="text-blue-400 hover:text-blue-300 transition-colors"
+          >
+            hello@asantinos.com
+          </a>
+        </p>
+      </section>
+
+      <!-- Footer -->
+      <footer class="mt-10 pt-6 border-t border-neutral-800 text-center">
+        <p class="text-sm text-neutral-500">
+          © {new Date().getFullYear()} asantinos
+        </p>
+        <a
+          href="https://asantinos.com"
+          class="text-sm text-neutral-500 hover:text-neutral-300 transition-colors"
+        >
+          asantinos.com
+        </a>
+      </footer>
+    </div>
+  </main>
 </Layout>
