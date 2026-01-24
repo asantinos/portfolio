@@ -41,45 +41,73 @@ const changelog = [
   <main class="min-h-screen px-6 py-16">
     <div class="max-w-xl mx-auto">
       <!-- App Store-style Header -->
-      <header class="flex items-start gap-5">
-        <div
-          class="h-32 w-32 shrink-0 rounded-[22px] bg-[#3474cf] ring-1 ring-neutral-800 flex items-center justify-center overflow-hidden"
-        >
-          <img
-            src="/icons/stride.png"
-            alt="Stride Logo"
-            class="w-full h-full"
-          />
+      <header>
+        <div class="flex items-start gap-5">
+          <div
+            class="h-24 w-24 sm:h-32 sm:w-32 shrink-0 rounded-[22px] bg-[#3474cf] ring-1 ring-neutral-800 flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src="/icons/stride.png"
+              alt="Stride Logo"
+              class="w-full h-full"
+            />
+          </div>
+
+          <div class="flex-1 min-w-0">
+            <h1 class="text-xl sm:text-2xl font-bold tracking-tight">{appName}</h1>
+            <p class="text-sm text-neutral-400 mt-0.5">{subtitle}</p>
+            <p class="text-sm text-neutral-500 mt-1">{developer}</p>
+
+            <!-- Buttons: hidden on mobile, shown on sm+ -->
+            <div class="hidden sm:flex mt-3 items-center gap-3">
+              {
+                appStoreUrl ? (
+                  <a
+                    target="_blank"
+                    href={appStoreUrl}
+                    class="inline-flex items-center gap-1.5 rounded-full bg-blue-500 px-4 py-1.5 text-sm font-semibold text-white hover:bg-blue-400 transition-colors"
+                  >
+                    GET
+                  </a>
+                ) : (
+                  <span class="inline-flex items-center rounded-full bg-neutral-800 px-4 py-1.5 text-sm font-medium text-neutral-400">
+                    Coming Soon
+                  </span>
+                )
+              }
+              <a
+                href="/stride/privacy"
+                class="text-sm text-blue-400 hover:text-blue-300 transition-colors"
+              >
+                Privacy Policy
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div class="flex-1 min-w-0">
-          <h1 class="text-2xl font-bold tracking-tight">{appName}</h1>
-          <p class="text-sm text-neutral-400 mt-0.5">{subtitle}</p>
-          <p class="text-sm text-neutral-500 mt-1">{developer}</p>
-
-          <div class="mt-3 flex items-center gap-3">
-            {
-              appStoreUrl ? (
-                <a
-                  target="_blank"
-                  href={appStoreUrl}
-                  class="inline-flex items-center gap-1.5 rounded-full bg-blue-500 px-4 py-1.5 text-sm font-semibold text-white hover:bg-blue-400 transition-colors"
-                >
-                  GET
-                </a>
-              ) : (
-                <span class="inline-flex items-center rounded-full bg-neutral-800 px-4 py-1.5 text-sm font-medium text-neutral-400">
-                  Coming Soon
-                </span>
-              )
-            }
-            <a
-              href="/stride/privacy"
-              class="text-sm text-blue-400 hover:text-blue-300 transition-colors"
-            >
-              Privacy Policy
-            </a>
-          </div>
+        <!-- Buttons: shown on mobile, hidden on sm+ -->
+        <div class="flex sm:hidden mt-5 items-center gap-3">
+          {
+            appStoreUrl ? (
+              <a
+                target="_blank"
+                href={appStoreUrl}
+                class="inline-flex items-center gap-1.5 rounded-full bg-blue-500 px-4 py-1.5 text-sm font-semibold text-white hover:bg-blue-400 transition-colors"
+              >
+                GET
+              </a>
+            ) : (
+              <span class="inline-flex items-center rounded-full bg-neutral-800 px-4 py-1.5 text-sm font-medium text-neutral-400">
+                Coming Soon
+              </span>
+            )
+          }
+          <a
+            href="/stride/privacy"
+            class="text-sm text-blue-400 hover:text-blue-300 transition-colors"
+          >
+            Privacy Policy
+          </a>
         </div>
       </header>
 
