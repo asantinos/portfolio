@@ -5,10 +5,10 @@ const name = "ALEX SANTOS";
 const title = "SOFTWARE DEV";
 
 const menuItems = [
-    { label: "ABOUT", content: "I build simple, thoughtful digital products." },
-    { label: "STRIDE", content: "Minimal step tracker for iOS" },
-    { label: "CONTACT", content: "hello@asantinos.com" },
-    { label: "SOCIAL", content: "X / GitHub / LinkedIn" },
+    { label: "ABOUT", href: "#" },
+    { label: "STRIDE", href: "/stride" },
+    { label: "CONTACT", href: "mailto:hello@asantinos.com" },
+    { label: "LINKS", href: "#" },
 ];
 
 const socials = [
@@ -19,109 +19,123 @@ const socials = [
 ---
 
 <Layout title="álex santos" description="Software Developer">
-    <main class="min-h-screen flex items-center justify-center p-4 bg-[#1a1a2e]">
+    <main class="min-h-screen flex items-center justify-center p-4 bg-linear-to-br from-[#2a2a3a] to-[#1a1a2a]">
 
-        <!-- Game Boy Color -->
+        <!-- Original Game Boy (DMG-01) -->
         <div class="gameboy">
-            <!-- Top curve/ridge -->
-            <div class="gameboy-top-ridge"></div>
+            <!-- Top cartridge slot area -->
+            <div class="cartridge-slot">
+                <div class="slot-indent"></div>
+            </div>
 
-            <!-- Screen area -->
-            <div class="screen-container">
-                <div class="screen-bezel">
-                    <p class="screen-label">DOT MATRIX WITH STEREO SOUND</p>
-                    <div class="screen">
-                        <div class="screen-content">
-                            <!-- Power indicator -->
-                            <div class="power-indicator">
-                                <span class="power-dot"></span>
-                                <span class="power-text">BATTERY</span>
+            <!-- Main body -->
+            <div class="body">
+                <!-- Screen section -->
+                <div class="screen-section">
+                    <!-- Screen bezel -->
+                    <div class="screen-bezel">
+                        <!-- Battery indicator -->
+                        <div class="battery-indicator">
+                            <div class="battery-led"></div>
+                            <span>BATTERY</span>
+                        </div>
+
+                        <!-- Screen -->
+                        <div class="screen">
+                            <div class="screen-inner">
+                                <!-- Game content -->
+                                <div class="game-content">
+                                    <div class="title-section">
+                                        <p class="game-title">{name}</p>
+                                        <p class="game-subtitle">{title}</p>
+                                    </div>
+
+                                    <nav class="menu">
+                                        {menuItems.map((item, i) => (
+                                            <a href={item.href} class="menu-item" data-index={i}>
+                                                <span class="cursor">▶</span>
+                                                <span>{item.label}</span>
+                                            </a>
+                                        ))}
+                                    </nav>
+
+                                    <p class="press-start">PRESS START</p>
+                                </div>
                             </div>
+                        </div>
 
-                            <!-- Game content -->
-                            <div class="game-screen">
-                                <div class="title-area">
-                                    <p class="pixel-title">{name}</p>
-                                    <p class="pixel-subtitle">{title}</p>
-                                </div>
+                        <!-- DOT MATRIX text -->
+                        <div class="dot-matrix-text">
+                            <span>DOT MATRIX WITH STEREO SOUND</span>
+                        </div>
+                    </div>
+                </div>
 
-                                <div class="menu">
-                                    {menuItems.map((item, i) => (
-                                        <a
-                                            href={item.label === "STRIDE" ? "/stride" : item.label === "CONTACT" ? "mailto:hello@asantinos.com" : "#"}
-                                            class="menu-item"
-                                            data-index={i}
-                                        >
-                                            <span class="selector">▶</span>
-                                            <span class="menu-label">{item.label}</span>
-                                        </a>
-                                    ))}
-                                </div>
+                <!-- Nintendo GAME BOY logo -->
+                <div class="logo-section">
+                    <p class="nintendo-text">Nintendo</p>
+                    <p class="gameboy-text">GAME BOY<span class="tm">™</span></p>
+                </div>
 
-                                <div class="footer-text">
-                                    <p>PRESS START</p>
-                                </div>
+                <!-- Controls section -->
+                <div class="controls-section">
+                    <!-- D-Pad -->
+                    <div class="dpad">
+                        <div class="dpad-vertical"></div>
+                        <div class="dpad-horizontal"></div>
+                        <div class="dpad-center"></div>
+                    </div>
+
+                    <!-- A/B Buttons -->
+                    <div class="ab-container">
+                        <div class="ab-buttons">
+                            <div class="btn-wrapper btn-b-wrapper">
+                                <button class="action-btn"></button>
+                                <span>B</span>
+                            </div>
+                            <div class="btn-wrapper btn-a-wrapper">
+                                <button class="action-btn"></button>
+                                <span>A</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p class="brand-text">GAME BOY<span class="color-text">COLOR</span></p>
-            </div>
 
-            <!-- Controls -->
-            <div class="controls">
-                <!-- D-Pad -->
-                <div class="dpad-container">
-                    <div class="dpad">
-                        <div class="dpad-up"></div>
-                        <div class="dpad-right"></div>
-                        <div class="dpad-down"></div>
-                        <div class="dpad-left"></div>
-                        <div class="dpad-center"></div>
+                <!-- Start/Select -->
+                <div class="start-select-section">
+                    <div class="ss-container">
+                        <button class="ss-btn"></button>
+                        <span>SELECT</span>
+                    </div>
+                    <div class="ss-container">
+                        <button class="ss-btn"></button>
+                        <span>START</span>
                     </div>
                 </div>
 
-                <!-- A/B Buttons -->
-                <div class="ab-buttons">
-                    <div class="button-group">
-                        <button class="action-btn btn-b">B</button>
-                        <button class="action-btn btn-a">A</button>
+                <!-- Speaker -->
+                <div class="speaker">
+                    <div class="speaker-line"></div>
+                    <div class="speaker-line"></div>
+                    <div class="speaker-line"></div>
+                    <div class="speaker-line"></div>
+                    <div class="speaker-line"></div>
+                    <div class="speaker-line"></div>
+                </div>
+
+                <!-- Bottom vent -->
+                <div class="bottom-vent">
+                    <div class="vent-lines">
+                        <span></span><span></span><span></span><span></span><span></span>
                     </div>
                 </div>
-            </div>
-
-            <!-- Start/Select -->
-            <div class="start-select">
-                <div class="ss-btn-container">
-                    <button class="ss-btn"></button>
-                    <span>SELECT</span>
-                </div>
-                <div class="ss-btn-container">
-                    <button class="ss-btn"></button>
-                    <span>START</span>
-                </div>
-            </div>
-
-            <!-- Speaker -->
-            <div class="speaker">
-                {[...Array(6)].map(() => (
-                    <div class="speaker-line">
-                        {[...Array(5)].map(() => (
-                            <div class="speaker-hole"></div>
-                        ))}
-                    </div>
-                ))}
             </div>
         </div>
 
-        <!-- Social links below -->
+        <!-- Social links -->
         <div class="social-links">
             {socials.map((social) => (
-                <a
-                    href={social.href}
-                    rel="me noopener noreferrer"
-                    target="_blank"
-                >
+                <a href={social.href} rel="me noopener noreferrer" target="_blank">
                     {social.label}
                 </a>
             ))}
@@ -134,287 +148,335 @@ const socials = [
 
     .gameboy {
         position: relative;
-        width: 280px;
-        height: 480px;
-        background: linear-gradient(145deg, #7b68a6 0%, #6a5a91 50%, #5d4e80 100%);
-        border-radius: 12px 12px 40px 40px;
+        display: flex;
+        flex-direction: column;
+        filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+    }
+
+    .cartridge-slot {
+        width: 270px;
+        height: 24px;
+        background: linear-gradient(to bottom, #c8c4bc, #d4d0c8);
+        border-radius: 6px 6px 0 0;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: inset 0 -2px 4px rgba(0,0,0,0.1);
+    }
+
+    .slot-indent {
+        width: 200px;
+        height: 6px;
+        background: #8a8680;
+        border-radius: 2px;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .body {
+        width: 300px;
+        background: linear-gradient(165deg, #d8d4cc 0%, #c8c4bc 50%, #bab6ae 100%);
+        border-radius: 10px 10px 55px 10px;
         padding: 16px;
-        box-shadow:
-            inset 2px 2px 4px rgba(255,255,255,0.2),
-            inset -2px -2px 4px rgba(0,0,0,0.2),
-            8px 8px 32px rgba(0,0,0,0.5);
+        position: relative;
     }
 
-    .gameboy-top-ridge {
-        position: absolute;
-        top: 0;
-        left: 20px;
-        right: 20px;
-        height: 8px;
-        background: linear-gradient(to bottom, #8b7ab0, #7b68a6);
-        border-radius: 0 0 4px 4px;
-    }
-
-    .screen-container {
-        background: #5a4a7a;
-        border-radius: 8px;
-        padding: 8px;
-        margin-top: 8px;
+    .screen-section {
+        margin-bottom: 8px;
     }
 
     .screen-bezel {
-        background: #4a3a6a;
-        border-radius: 4px;
-        padding: 4px 8px 8px;
+        background: linear-gradient(145deg, #5c5478, #4a4268);
+        border-radius: 8px;
+        padding: 12px;
+        position: relative;
     }
 
-    .screen-label {
-        font-family: 'Arial', sans-serif;
+    .battery-indicator {
+        position: absolute;
+        top: 60px;
+        left: 12x;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .battery-led {
+        width: 8px;
+        height: 8px;
+        background: #d44;
+        border-radius: 50%;
+        box-shadow: 0 0 6px #f66, inset 0 -1px 2px rgba(0,0,0,0.3);
+        animation: led-pulse 2s ease-in-out infinite;
+        margin-left: -10px;
+    }
+
+    @keyframes led-pulse {
+        0%, 100% { opacity: 1; box-shadow: 0 0 6px #f66; }
+        50% { opacity: 0.6; box-shadow: 0 0 3px #f66; }
+    }
+
+    .battery-indicator span {
+        font-family: Arial, sans-serif;
         font-size: 5px;
-        color: #8a7aaa;
-        text-align: center;
-        margin-bottom: 4px;
-        letter-spacing: 1px;
+        font-weight: bold;
+        color: #8a82a0;
+        letter-spacing: 0.5px;
     }
 
     .screen {
-        background: #8b9c5a;
+        background: #8b956a;
         border-radius: 4px;
-        padding: 4px;
-        box-shadow: inset 2px 2px 8px rgba(0,0,0,0.3);
+        padding: 6px;
+        margin-left: 32px;
+        box-shadow: inset 3px 3px 8px rgba(0,0,0,0.25);
     }
 
-    .screen-content {
-        background: #9bac6a;
-        min-height: 160px;
+    .screen-inner {
+        background: #9ba86c;
         border-radius: 2px;
-        position: relative;
-        overflow: hidden;
+        min-height: 150px;
     }
 
-    .power-indicator {
+    .dot-matrix-text {
         position: absolute;
-        top: 4px;
-        left: 4px;
-        display: flex;
-        align-items: center;
-        gap: 3px;
+        top: -10px;
+        right: 12px;
+        text-orientation: mixed;
     }
 
-    .power-dot {
-        width: 6px;
-        height: 6px;
-        background: #5a6b3a;
-        border-radius: 50%;
-        animation: blink 2s infinite;
+    .dot-matrix-text span {
+        font-family: Arial, sans-serif;
+        font-size: 6px;
+        font-weight: bold;
+        color: #cccccc;
+        letter-spacing: 1px;
     }
 
-    .power-text {
-        font-family: 'Press Start 2P', monospace;
-        font-size: 4px;
-        color: #5a6b3a;
-    }
-
-    @keyframes blink {
-        0%, 100% { background: #5a6b3a; }
-        50% { background: #3a4b2a; }
-    }
-
-    .game-screen {
-        padding: 20px 12px 12px;
+    .game-content {
+        padding: 14px 10px 10px;
         display: flex;
         flex-direction: column;
-        height: 152px;
+        min-height: 138px;
     }
 
-    .title-area {
+    .title-section {
         text-align: center;
-        margin-bottom: 12px;
-        padding-bottom: 8px;
-        border-bottom: 2px solid #5a6b3a;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #6a7450;
+        margin-bottom: 10px;
     }
 
-    .pixel-title {
+    .game-title {
         font-family: 'Press Start 2P', monospace;
-        font-size: 10px;
-        color: #2a3b1a;
-        margin-bottom: 4px;
-        text-shadow: 1px 1px 0 #7a8b5a;
+        font-size: 11px;
+        color: #2a3420;
+        text-shadow: 1px 1px 0 #b0bc8a;
     }
 
-    .pixel-subtitle {
+    .game-subtitle {
         font-family: 'Press Start 2P', monospace;
-        font-size: 6px;
-        color: #4a5b3a;
+        font-size: 7px;
+        color: #4a543a;
+        margin-top: 6px;
     }
 
     .menu {
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: 8px;
     }
 
     .menu-item {
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 8px;
         font-family: 'Press Start 2P', monospace;
-        font-size: 7px;
-        color: #2a3b1a;
+        font-size: 8px;
+        color: #2a3420;
         text-decoration: none;
-        padding: 2px 4px;
-        transition: all 0.1s;
+        padding: 3px 6px;
+        border-radius: 2px;
+        transition: background 0.15s;
     }
 
     .menu-item:hover {
-        background: #7a8b5a;
+        background: #8a9660;
     }
 
-    .menu-item:hover .selector {
+    .menu-item .cursor {
+        opacity: 0;
+        font-size: 7px;
+        transition: opacity 0.15s;
+    }
+
+    .menu-item:hover .cursor,
+    .menu-item:first-child .cursor {
         opacity: 1;
     }
 
-    .selector {
-        opacity: 0;
-        font-size: 6px;
-        transition: opacity 0.1s;
+    .menu-item:first-child .cursor {
+        animation: blink 1s steps(1) infinite;
     }
 
-    .menu-item:first-child .selector {
-        animation: cursor-blink 1s infinite;
-    }
-
-    @keyframes cursor-blink {
+    @keyframes blink {
         0%, 100% { opacity: 1; }
         50% { opacity: 0; }
     }
 
-    .footer-text {
+    .press-start {
         text-align: center;
         font-family: 'Press Start 2P', monospace;
-        font-size: 5px;
-        color: #5a6b3a;
-        animation: cursor-blink 1.5s infinite;
+        font-size: 6px;
+        color: #5a6446;
+        margin-top: 8px;
+        animation: blink 1.2s steps(1) infinite;
     }
 
-    .brand-text {
-        font-family: 'Arial Black', sans-serif;
-        font-size: 11px;
-        font-weight: 900;
+    .logo-section {
+        display: flex;
+        text-align: center;
+        margin: -12px 0 16px;
+    }
+
+    .nintendo-text {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        color: #060b96;
+        margin-top: 11px;
+    }
+
+    .gameboy-text {
+        display: flex;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 20px;
         font-style: italic;
-        color: #2a2a4a;
-        text-align: left;
-        margin-top: 6px;
-        margin-left: 4px;
-        letter-spacing: -0.5px;
-    }
-
-    .color-text {
-        color: #4a8cca;
+        color: #060b96;
+        letter-spacing: -1px;
+        text-shadow: 1px 1px 0 rgba(255,255,255,0.3);
         margin-left: 2px;
-        font-size: 9px;
     }
 
-    .controls {
+    .tm {
+        font-size: 16px;
+        vertical-align: bottom;
+        font-weight: 600;
+        margin-top: 15px;
+        margin-left: -3px;
+    }
+
+    .controls-section {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        margin-top: 20px;
+        align-items: flex-start;
         padding: 0 8px;
-    }
-
-    .dpad-container {
-        width: 72px;
-        height: 72px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        margin-bottom: 16px;
     }
 
     .dpad {
         position: relative;
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
     }
 
-    .dpad-up, .dpad-down, .dpad-left, .dpad-right {
+    .dpad-vertical,
+    .dpad-horizontal {
         position: absolute;
-        background: #2a2a4a;
-        border-radius: 2px;
+        background: linear-gradient(145deg, #2a2a30, #1a1a20);
+        border-radius: 3px;
     }
 
-    .dpad-up, .dpad-down {
-        width: 20px;
-        height: 24px;
+    .dpad-vertical {
+        width: 22px;
+        height: 70px;
         left: 50%;
         transform: translateX(-50%);
+        box-shadow: inset 1px 1px 2px rgba(255,255,255,0.1), 2px 2px 4px rgba(0,0,0,0.3);
     }
 
-    .dpad-left, .dpad-right {
-        width: 24px;
-        height: 20px;
+    .dpad-horizontal {
+        width: 70px;
+        height: 22px;
         top: 50%;
         transform: translateY(-50%);
+        box-shadow: inset 1px 1px 2px rgba(255,255,255,0.1), 2px 2px 4px rgba(0,0,0,0.3);
     }
-
-    .dpad-up { top: 0; border-radius: 4px 4px 0 0; }
-    .dpad-down { bottom: 0; border-radius: 0 0 4px 4px; }
-    .dpad-left { left: 0; border-radius: 4px 0 0 4px; }
-    .dpad-right { right: 0; border-radius: 0 4px 4px 0; }
 
     .dpad-center {
         position: absolute;
-        width: 20px;
-        height: 20px;
-        background: #2a2a4a;
+        width: 22px;
+        height: 22px;
+        background: #222228;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        border-radius: 50%;
+    }
+
+    .ab-container {
+        padding-top: 8px;
     }
 
     .ab-buttons {
         display: flex;
-        align-items: center;
+        gap: 10px;
+        transform: rotate(-8deg);
     }
 
-    .button-group {
+    .btn-wrapper {
         display: flex;
-        gap: 8px;
-        transform: rotate(-25deg);
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .btn-wrapper span {
+        font-family: 'Arial Black', sans-serif;
+        font-size: 9px;
+        font-weight: 900;
+        color: #060b96;
+        transform: rotate(-22deg);
+        margin-left: 24px;
+    }
+
+    .btn-a-wrapper {
+        margin-top: -16px;
     }
 
     .action-btn {
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
         border-radius: 50%;
-        background: linear-gradient(145deg, #9a3a5a, #7a2a4a);
+        background: linear-gradient(145deg, #a03050, #802040);
         border: none;
-        color: #4a1a2a;
-        font-family: 'Arial Black', sans-serif;
-        font-size: 10px;
-        font-weight: bold;
         cursor: pointer;
         box-shadow:
-            inset 1px 1px 2px rgba(255,255,255,0.2),
-            2px 2px 4px rgba(0,0,0,0.3);
+            inset 2px 2px 4px rgba(255,255,255,0.2),
+            inset -1px -1px 3px rgba(0,0,0,0.2),
+            3px 3px 6px rgba(0,0,0,0.3);
+        transition: box-shadow 0.1s, transform 0.1s;
     }
 
     .action-btn:active {
-        box-shadow: inset 2px 2px 4px rgba(0,0,0,0.3);
+        box-shadow:
+            inset 3px 3px 6px rgba(0,0,0,0.3),
+            1px 1px 2px rgba(0,0,0,0.2);
+        transform: scale(0.96);
     }
 
-    .btn-a { margin-top: -12px; }
-
-    .start-select {
+    .start-select-section {
         display: flex;
         justify-content: center;
-        gap: 24px;
-        margin-top: 16px;
-        transform: rotate(-25deg);
+        gap: 32px;
+        margin-bottom: 50px;
+        transform: rotate(-26deg);
+        margin-left: -20px;
     }
 
-    .ss-btn-container {
+    .ss-container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -422,42 +484,63 @@ const socials = [
     }
 
     .ss-btn {
-        width: 28px;
-        height: 8px;
-        background: #4a4a6a;
+        width: 32px;
+        height: 10px;
+        background: linear-gradient(to bottom, #7a7670, #6a6660);
         border: none;
-        border-radius: 4px;
+        border-radius: 6px;
         cursor: pointer;
-        box-shadow: inset 1px 1px 2px rgba(0,0,0,0.3);
+        box-shadow: inset 1px 1px 2px rgba(255,255,255,0.2), 2px 2px 4px rgba(0,0,0,0.2);
     }
 
-    .ss-btn-container span {
+    .ss-btn:active {
+        box-shadow: inset 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .ss-container span {
         font-family: 'Arial', sans-serif;
-        font-size: 6px;
-        color: #3a3a5a;
-        font-weight: bold;
+        font-size: 7px;
+        font-weight: bolder;
+        color: #060b96;
+        letter-spacing: 0.5px;
     }
 
     .speaker {
         position: absolute;
-        bottom: 24px;
-        right: 16px;
+        bottom: 12px;
+        right: 36px;
         display: flex;
         flex-direction: column;
-        gap: 4px;
-        transform: rotate(-25deg);
+        gap: 10px;
+        transform: rotate(62deg);
     }
 
     .speaker-line {
+        width: 50px;
+        height: 5px;
+        background: linear-gradient(to bottom, #8a8680, #9a9690);
+        border-radius: 2px;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .bottom-vent {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .vent-lines {
         display: flex;
         gap: 4px;
     }
 
-    .speaker-hole {
-        width: 4px;
-        height: 4px;
-        background: #4a4a6a;
-        border-radius: 50%;
+    .vent-lines span {
+        width: 3px;
+        height: 10px;
+        background: #9a9690;
+        border-radius: 1px;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
     }
 
     .social-links {
@@ -472,39 +555,77 @@ const socials = [
     .social-links a {
         font-family: 'Press Start 2P', monospace;
         font-size: 8px;
-        color: #7b68a6;
+        color: #6a6a7a;
         text-decoration: none;
         transition: color 0.2s;
     }
 
     .social-links a:hover {
-        color: #9b88c6;
+        color: #9a9aaa;
     }
 
     @media (min-width: 640px) {
-        .gameboy {
-            width: 320px;
-            height: 540px;
+        .cartridge-slot {
+            width: 310px;
+            height: 28px;
         }
 
-        .screen-content {
-            min-height: 180px;
+        .body {
+            width: 340px;
+            padding: 20px;
         }
 
-        .game-screen {
-            height: 172px;
+        .screen {
+            margin-left: 36px;
         }
 
-        .pixel-title {
-            font-size: 12px;
+        .screen-inner {
+            min-height: 170px;
         }
 
-        .pixel-subtitle {
-            font-size: 7px;
+        .game-content {
+            min-height: 158px;
+        }
+
+        .game-title {
+            font-size: 13px;
+        }
+
+        .game-subtitle {
+            font-size: 8px;
         }
 
         .menu-item {
-            font-size: 8px;
+            font-size: 9px;
+        }
+
+        .gameboy-text {
+            font-size: 24px;
+        }
+
+        .dpad {
+            width: 80px;
+            height: 80px;
+        }
+
+        .dpad-vertical {
+            width: 26px;
+            height: 80px;
+        }
+
+        .dpad-horizontal {
+            width: 80px;
+            height: 26px;
+        }
+
+        .dpad-center {
+            width: 26px;
+            height: 26px;
+        }
+
+        .action-btn {
+            width: 44px;
+            height: 44px;
         }
     }
 </style>
