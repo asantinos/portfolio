@@ -22,7 +22,7 @@ import Layout from "../layouts/RootLayout.astro";
       <!-- Terminal Body -->
       <div
         id="terminal"
-        class="bg-[#1e1e1e] rounded-b-lg p-4 font-mono text-sm min-h-[500px] max-h-[70vh] overflow-y-auto focus:outline-none"
+        class="bg-[#1e1e1e] rounded-b-lg p-4 font-mono text-sm min-h-[500px] max-h-[70vh] overflow-y-auto focus:outline-none relative"
         tabindex="0"
       >
         <div id="output"></div>
@@ -32,6 +32,16 @@ import Layout from "../layouts/RootLayout.astro";
           <span id="current-input" class="text-white"></span>
           <span id="cursor" class="bg-white w-2 h-5 inline-block animate-pulse"></span>
         </div>
+        <!-- Hidden input for mobile keyboard -->
+        <input
+          type="text"
+          id="mobile-input"
+          class="absolute top-0 left-0 w-full h-full opacity-0 pointer-events-none"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+        />
       </div>
 
       <!-- Instructions -->
@@ -97,6 +107,10 @@ import Layout from "../layouts/RootLayout.astro";
   const output = document.getElementById('output')!;
   const currentInput = document.getElementById('current-input')!;
   const cursor = document.getElementById('cursor')!;
+  const mobileInput = document.getElementById('mobile-input') as HTMLInputElement;
+
+  // Detect mobile device
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
 
   let inputBuffer = '';
   let commandHistory: string[] = [];
@@ -381,6 +395,17 @@ import Layout from "../layouts/RootLayout.astro";
 
   // Snake Game Functions
   function startSnakeGame() {
+    // Check if on mobile device
+    if (isMobile) {
+      addLine('');
+      addLine('<span class="text-[#ff5f56]">━━━ SNAKE GAME ━━━</span>');
+      addLine('');
+      addLine('<span class="text-[#a0a0a0]">Sorry! This game requires a keyboard to play.</span>');
+      addLine('<span class="text-[#a0a0a0]">Please visit on a <span class="text-[#6bc1ff]">desktop computer</span> to enjoy the game.</span>');
+      addLine('');
+      return;
+    }
+
     gameMode = true;
     gameOver = false;
     score = 0;
@@ -589,6 +614,10 @@ import Layout from "../layouts/RootLayout.astro";
 
   function updateInput() {
     currentInput.textContent = inputBuffer;
+    // Sync with mobile input
+    if (mobileInput && mobileInput.value !== inputBuffer) {
+      mobileInput.value = inputBuffer;
+    }
   }
 
   // Keyboard handler
@@ -697,14 +726,43 @@ import Layout from "../layouts/RootLayout.astro";
     }
   });
 
-  // Focus terminal on click
+  // Focus terminal on click (and mobile input for keyboard)
   terminal.addEventListener('click', () => {
     terminal.focus();
+    if (isMobile && mobileInput) {
+      mobileInput.style.pointerEvents = 'auto';
+      mobileInput.focus();
+    }
   });
+
+  // Mobile input handling
+  if (mobileInput) {
+    mobileInput.addEventListener('input', () => {
+      if (gameMode || menuMode) return;
+      inputBuffer = mobileInput.value;
+      currentInput.textContent = inputBuffer;
+      scrollToBottom();
+    });
+
+    mobileInput.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (!gameMode && !menuMode) {
+          executeCommand(inputBuffer);
+          inputBuffer = '';
+          mobileInput.value = '';
+          updateInput();
+        }
+      }
+    });
+  }
 
   // Initialize on DOM ready
   document.addEventListener('DOMContentLoaded', () => {
     terminal.focus();
+    if (isMobile && mobileInput) {
+      mobileInput.focus();
+    }
     showWelcome();
   });
 </script>
