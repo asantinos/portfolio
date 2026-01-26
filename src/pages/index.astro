@@ -230,7 +230,7 @@ import Layout from "../layouts/RootLayout.astro";
 
     addLine('');
     addLine('<span class="text-[#6bc1ff]">━━━ Projects ━━━</span>');
-    addLine('<span class="text-[#a0a0a0]">Use ↑↓ to navigate, Enter to select, Esc to go back</span>');
+    addLine(`<span class="text-[#a0a0a0]">${isMobile ? 'Tap to select' : 'Use ↑↓ to navigate, Enter to select, Esc to go back'}</span>`);
     addLine('');
     renderProjectsMenu();
   }
@@ -248,24 +248,28 @@ import Layout from "../layouts/RootLayout.astro";
 
     projects.forEach((project, i) => {
       const selected = menuIndex === i;
-      menu.innerHTML += `
-        <div class="menu-item py-2 px-3 rounded ${selected ? 'selected bg-[#2a2a3e]' : ''}">
-          <span class="text-[#ffbd2e]">${selected ? '▶' : ' '}</span>
-          <span class="text-[#27ca3f] ml-2">${project.name}</span>
-          <span class="text-[#a0a0a0] ml-2">- ${project.desc}</span>
-          <div class="ml-6 text-[#6b7280] text-xs mt-1">${project.tech}</div>
-        </div>
+      const item = document.createElement('div');
+      item.className = `menu-item py-2 px-3 rounded cursor-pointer ${selected ? 'selected bg-[#2a2a3e]' : ''}`;
+      item.innerHTML = `
+        <span class="text-[#ffbd2e]">${selected ? '▶' : ' '}</span>
+        <span class="text-[#27ca3f] ml-2">${project.name}</span>
+        <span class="text-[#a0a0a0] ml-2">- ${project.desc}</span>
+        <div class="ml-6 text-[#6b7280] text-xs mt-1">${project.tech}</div>
       `;
+      item.addEventListener('click', () => selectProject(i));
+      menu.appendChild(item);
     });
 
     // Back option
     const backSelected = menuIndex === projects.length;
-    menu.innerHTML += `
-      <div class="menu-item py-2 px-3 rounded mt-2 ${backSelected ? 'selected bg-[#2a2a3e]' : ''}">
-        <span class="text-[#ffbd2e]">${backSelected ? '▶' : ' '}</span>
-        <span class="text-[#ff5f56] ml-2">← Back</span>
-      </div>
+    const backItem = document.createElement('div');
+    backItem.className = `menu-item py-2 px-3 rounded mt-2 cursor-pointer ${backSelected ? 'selected bg-[#2a2a3e]' : ''}`;
+    backItem.innerHTML = `
+      <span class="text-[#ffbd2e]">${backSelected ? '▶' : ' '}</span>
+      <span class="text-[#ff5f56] ml-2">← Back</span>
     `;
+    backItem.addEventListener('click', () => selectProject(projects.length));
+    menu.appendChild(backItem);
 
     output.appendChild(menu);
     scrollToBottom();
@@ -332,7 +336,7 @@ import Layout from "../layouts/RootLayout.astro";
 
     addLine('');
     addLine('<span class="text-[#6bc1ff]">━━━ Contact ━━━</span>');
-    addLine('<span class="text-[#a0a0a0]">Use ↑↓ to navigate, Enter to open link, Esc to go back</span>');
+    addLine(`<span class="text-[#a0a0a0]">${isMobile ? 'Tap to select' : 'Use ↑↓ to navigate, Enter to open link, Esc to go back'}</span>`);
     addLine('');
     renderContactMenu();
   }
@@ -353,23 +357,27 @@ import Layout from "../layouts/RootLayout.astro";
 
     contacts.forEach((contact, i) => {
       const selected = menuIndex === i;
-      menu.innerHTML += `
-        <div class="menu-item py-2 px-3 rounded ${selected ? 'selected bg-[#2a2a3e]' : ''}" data-url="${contact.url}">
-          <span class="text-[#ffbd2e]">${selected ? '▶' : ' '}</span>
-          <span class="text-[#27ca3f] ml-2">${contact.name}</span>
-          <span class="text-[#a0a0a0] ml-2">→ ${contact.value}</span>
-        </div>
+      const item = document.createElement('div');
+      item.className = `menu-item py-2 px-3 rounded cursor-pointer ${selected ? 'selected bg-[#2a2a3e]' : ''}`;
+      item.innerHTML = `
+        <span class="text-[#ffbd2e]">${selected ? '▶' : ' '}</span>
+        <span class="text-[#27ca3f] ml-2">${contact.name}</span>
+        <span class="text-[#a0a0a0] ml-2">→ ${contact.value}</span>
       `;
+      item.addEventListener('click', () => selectContact(i));
+      menu.appendChild(item);
     });
 
     // Back option
     const backSelected = menuIndex === contacts.length;
-    menu.innerHTML += `
-      <div class="menu-item py-2 px-3 rounded mt-2 ${backSelected ? 'selected bg-[#2a2a3e]' : ''}">
-        <span class="text-[#ffbd2e]">${backSelected ? '▶' : ' '}</span>
-        <span class="text-[#ff5f56] ml-2">← Back</span>
-      </div>
+    const backItem = document.createElement('div');
+    backItem.className = `menu-item py-2 px-3 rounded mt-2 cursor-pointer ${backSelected ? 'selected bg-[#2a2a3e]' : ''}`;
+    backItem.innerHTML = `
+      <span class="text-[#ffbd2e]">${backSelected ? '▶' : ' '}</span>
+      <span class="text-[#ff5f56] ml-2">← Back</span>
     `;
+    backItem.addEventListener('click', () => selectContact(contacts.length));
+    menu.appendChild(backItem);
 
     output.appendChild(menu);
     scrollToBottom();
