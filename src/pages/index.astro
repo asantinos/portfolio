@@ -1,722 +1,505 @@
 ---
 import Layout from "../layouts/RootLayout.astro";
-
-const name = "ALEX SANTOS";
-const title = "SOFTWARE DEV";
-
-const menuItems = [
-    { label: "ABOUT", href: "#", id: "about-btn" },
-    { label: "STRIDE", href: "/stride" },
-    { label: "CONTACT", href: "mailto:hello@asantinos.com" },
-    { label: "LINKS", href: "#", id: "links-btn" },
-];
-
-const aboutInfo = [
-    "DEV FROM SPAIN",
-    "iOS & WEB APPS",
-    "JAVASCRIPT LOVER",
-    "UI/UX MINIMALIST",
-];
-
-const socials = [
-    { label: "X", href: "https://x.com/alexgrok" },
-    { label: "GitHub", href: "https://github.com/asantinos" },
-    { label: "LinkedIn", href: "https://linkedin.com/in/asantinos" },
-];
 ---
 
-<Layout title="Álex Santos" description="Software Developer">
-    <main class="min-h-screen flex items-center justify-center p-4 bg-linear-to-br from-[#2a2a3a] to-[#1a1a2a]">
-
-        <!-- Original Game Boy (DMG-01) -->
-        <div class="gameboy">
-            <!-- Top cartridge slot area -->
-            <div class="cartridge-slot">
-                <div class="slot-indent"></div>
-            </div>
-
-            <!-- Main body -->
-            <div class="body">
-                <!-- Screen section -->
-                <div class="screen-section">
-                    <!-- Screen bezel -->
-                    <div class="screen-bezel">
-                        <!-- Battery indicator -->
-                        <div class="battery-indicator">
-                            <div class="battery-led"></div>
-                            <span>BATTERY</span>
-                        </div>
-
-                        <!-- Screen -->
-                        <div class="screen">
-                            <div class="screen-inner">
-                                <!-- Game content - Main Menu -->
-                                <div class="game-content" id="main-screen">
-                                    <div class="title-section">
-                                        <p class="game-title">{name}</p>
-                                        <p class="game-subtitle">{title}</p>
-                                    </div>
-
-                                    <nav class="menu">
-                                        {menuItems.map((item, i) => (
-                                            <a href={item.href} class="menu-item" data-index={i} id={item.id || ""}>
-                                                <span class="cursor">▶</span>
-                                                <span>{item.label}</span>
-                                            </a>
-                                        ))}
-                                    </nav>
-
-                                    <p class="press-start">PRESS START</p>
-                                </div>
-
-                                <!-- Game content - About Screen -->
-                                <div class="game-content hidden" id="about-screen">
-                                    <div class="title-section">
-                                        <p class="game-title">ABOUT ME</p>
-                                    </div>
-
-                                    <div class="about-list">
-                                        {aboutInfo.map((info) => (
-                                            <p class="about-item">{info}</p>
-                                        ))}
-                                    </div>
-
-                                    <button class="back-btn" id="back-btn">
-                                        <span>◀</span>
-                                        <span>BACK</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- DOT MATRIX text -->
-                        <div class="dot-matrix-text">
-                            <span>DOT MATRIX WITH STEREO SOUND</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Nintendo GAME BOY logo -->
-                <div class="logo-section">
-                    <p class="nintendo-text">Nintendo</p>
-                    <p class="gameboy-text">GAME BOY<span class="tm">™</span></p>
-                </div>
-
-                <!-- Controls section -->
-                <div class="controls-section">
-                    <!-- D-Pad -->
-                    <div class="dpad">
-                        <div class="dpad-vertical"></div>
-                        <div class="dpad-horizontal"></div>
-                        <div class="dpad-center"></div>
-                    </div>
-
-                    <!-- A/B Buttons -->
-                    <div class="ab-container">
-                        <div class="ab-buttons">
-                            <div class="btn-wrapper btn-b-wrapper">
-                                <button class="action-btn"></button>
-                                <span>B</span>
-                            </div>
-                            <div class="btn-wrapper btn-a-wrapper">
-                                <button class="action-btn"></button>
-                                <span>A</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Start/Select -->
-                <div class="start-select-section">
-                    <div class="ss-container">
-                        <button class="ss-btn"></button>
-                        <span>SELECT</span>
-                    </div>
-                    <div class="ss-container">
-                        <button class="ss-btn"></button>
-                        <span>START</span>
-                    </div>
-                </div>
-
-                <!-- Speaker -->
-                <div class="speaker">
-                    <div class="speaker-line"></div>
-                    <div class="speaker-line"></div>
-                    <div class="speaker-line"></div>
-                    <div class="speaker-line"></div>
-                    <div class="speaker-line"></div>
-                    <div class="speaker-line"></div>
-                </div>
-
-                <!-- Bottom vent -->
-                <div class="bottom-vent">
-                    <div class="vent-lines">
-                        <span></span><span></span><span></span><span></span><span></span>
-                    </div>
-                </div>
-            </div>
+<Layout title="Álex Santos | Terminal" description="Software Developer">
+  <div class="min-h-screen bg-[#1a1a2e] flex items-center justify-center p-4">
+    <!-- Terminal Window -->
+    <div class="w-full max-w-3xl">
+      <!-- Terminal Header -->
+      <div class="bg-[#3a3a3a] rounded-t-lg px-4 py-3 flex items-center gap-2">
+        <div class="flex gap-2">
+          <div class="w-3 h-3 rounded-full bg-[#ff5f56] hover:brightness-110 cursor-pointer"></div>
+          <div class="w-3 h-3 rounded-full bg-[#ffbd2e] hover:brightness-110 cursor-pointer"></div>
+          <div class="w-3 h-3 rounded-full bg-[#27ca3f] hover:brightness-110 cursor-pointer"></div>
         </div>
-
-        <!-- Social links -->
-        <div class="social-links">
-            {socials.map((social) => (
-                <a href={social.href} rel="me noopener noreferrer" target="_blank">
-                    {social.label}
-                </a>
-            ))}
+        <div class="flex-1 text-center">
+          <span class="text-[#a0a0a0] text-sm font-medium">alex@portfolio — zsh</span>
         </div>
-    </main>
+        <div class="w-14"></div>
+      </div>
+
+      <!-- Terminal Body -->
+      <div
+        id="terminal"
+        class="bg-[#1e1e1e] rounded-b-lg p-4 font-mono text-sm min-h-[500px] max-h-[70vh] overflow-y-auto focus:outline-none"
+        tabindex="0"
+      >
+        <div id="output"></div>
+        <div id="input-line" class="flex items-start">
+          <span class="text-[#27ca3f] mr-2 shrink-0">➜</span>
+          <span class="text-[#6bc1ff] mr-2 shrink-0">~</span>
+          <span id="current-input" class="text-white"></span>
+          <span id="cursor" class="bg-white w-2 h-5 inline-block animate-pulse"></span>
+        </div>
+      </div>
+
+      <!-- Instructions -->
+      <div class="mt-4 text-center text-[#6b7280] text-sm">
+        <p>Type a command or use <kbd class="px-2 py-1 bg-[#2a2a3e] rounded text-xs">↑</kbd> <kbd class="px-2 py-1 bg-[#2a2a3e] rounded text-xs">↓</kbd> to navigate history · <kbd class="px-2 py-1 bg-[#2a2a3e] rounded text-xs">Enter</kbd> to execute · <kbd class="px-2 py-1 bg-[#2a2a3e] rounded text-xs">Tab</kbd> to autocomplete</p>
+      </div>
+    </div>
+  </div>
 </Layout>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-    .gameboy {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
-    }
-
-    .cartridge-slot {
-        width: 270px;
-        height: 24px;
-        background: linear-gradient(to bottom, #c8c4bc, #d4d0c8);
-        border-radius: 6px 6px 0 0;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: inset 0 -2px 4px rgba(0,0,0,0.1);
-    }
-
-    .slot-indent {
-        width: 200px;
-        height: 6px;
-        background: #8a8680;
-        border-radius: 2px;
-        box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-    }
-
-    .body {
-        width: 300px;
-        background: linear-gradient(165deg, #d8d4cc 0%, #c8c4bc 50%, #bab6ae 100%);
-        border-radius: 10px 10px 55px 10px;
-        padding: 16px;
-        position: relative;
-    }
-
-    .screen-section {
-        margin-bottom: 8px;
-    }
-
-    .screen-bezel {
-        background: linear-gradient(145deg, #5c5478, #4a4268);
-        border-radius: 8px;
-        padding: 12px;
-        position: relative;
-    }
-
-    .battery-indicator {
-        position: absolute;
-        top: 60px;
-        left: 12x;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-    }
-
-    .battery-led {
-        width: 8px;
-        height: 8px;
-        background: #d44;
-        border-radius: 50%;
-        box-shadow: 0 0 6px #f66, inset 0 -1px 2px rgba(0,0,0,0.3);
-        animation: led-pulse 2s ease-in-out infinite;
-        margin-left: -10px;
-    }
-
-    @keyframes led-pulse {
-        0%, 100% { opacity: 1; box-shadow: 0 0 6px #f66; }
-        50% { opacity: 0.6; box-shadow: 0 0 3px #f66; }
-    }
-
-    .battery-indicator span {
-        font-family: Arial, sans-serif;
-        font-size: 5px;
-        font-weight: bold;
-        color: #8a82a0;
-        letter-spacing: 0.5px;
-    }
-
-    .screen {
-        background: #8b956a;
-        border-radius: 4px;
-        padding: 6px;
-        margin-left: 32px;
-        box-shadow: inset 3px 3px 8px rgba(0,0,0,0.25);
-    }
-
-    .screen-inner {
-        background: #9ba86c;
-        border-radius: 2px;
-        min-height: 150px;
-    }
-
-    .dot-matrix-text {
-        position: absolute;
-        top: -10px;
-        right: 12px;
-        text-orientation: mixed;
-    }
-
-    .dot-matrix-text span {
-        font-family: Arial, sans-serif;
-        font-size: 6px;
-        font-weight: bold;
-        color: #cccccc;
-        letter-spacing: 1px;
-    }
-
-    .game-content {
-        padding: 14px 10px 10px;
-        display: flex;
-        flex-direction: column;
-        height: 200px;
-    }
-
-    .title-section {
-        text-align: center;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #6a7450;
-        margin-bottom: 10px;
-    }
-
-    .game-title {
-        font-family: 'Press Start 2P', monospace;
-        font-size: 11px;
-        color: #2a3420;
-        text-shadow: 1px 1px 0 #b0bc8a;
-    }
-
-    .game-subtitle {
-        font-family: 'Press Start 2P', monospace;
-        font-size: 7px;
-        color: #4a543a;
-        margin-top: 6px;
-    }
-
-    .menu {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .menu-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-family: 'Press Start 2P', monospace;
-        font-size: 8px;
-        color: #2a3420;
-        text-decoration: none;
-        padding: 3px 6px;
-        border-radius: 2px;
-        transition: background 0.15s;
-    }
-
-    .menu-item:hover {
-        background: #8a9660;
-    }
-
-    .cursor {
-        margin-top: -6px;
-    }
-
-    .menu-item .cursor {
-        opacity: 0;
-        font-size: 7px;
-        transition: opacity 0.15s;
-    }
-
-    .menu-item:hover .cursor,
-    .menu-item:first-child .cursor {
-        opacity: 1;
-    }
-
-    .menu-item:first-child .cursor {
-        animation: blink 1s steps(1) infinite;
-    }
-
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-    }
-
-    .press-start {
-        text-align: center;
-        font-family: 'Press Start 2P', monospace;
-        font-size: 6px;
-        color: #5a6446;
-        margin-top: 8px;
-        animation: blink 1.2s steps(1) infinite;
-    }
-
-    .logo-section {
-        display: flex;
-        text-align: center;
-        margin: -12px 0 16px;
-    }
-
-    .nintendo-text {
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-weight: bold;
-        font-size: 14px;
-        color: #060b96;
-        margin-top: 11px;
-    }
-
-    .gameboy-text {
-        display: flex;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        font-size: 20px;
-        font-style: italic;
-        color: #060b96;
-        letter-spacing: -1px;
-        text-shadow: 1px 1px 0 rgba(255,255,255,0.3);
-        margin-left: 2px;
-    }
-
-    .tm {
-        font-size: 16px;
-        vertical-align: bottom;
-        font-weight: 600;
-        margin-top: 15px;
-        margin-left: -3px;
-    }
-
-    .controls-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: 0 8px;
-        margin-bottom: 16px;
-    }
-
-    .dpad {
-        position: relative;
-        width: 70px;
-        height: 70px;
-    }
-
-    .dpad-vertical,
-    .dpad-horizontal {
-        position: absolute;
-        background: linear-gradient(145deg, #2a2a30, #1a1a20);
-        border-radius: 3px;
-    }
-
-    .dpad-vertical {
-        width: 22px;
-        height: 70px;
-        left: 50%;
-        transform: translateX(-50%);
-        box-shadow: inset 1px 1px 2px rgba(255,255,255,0.1), 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .dpad-horizontal {
-        width: 70px;
-        height: 22px;
-        top: 50%;
-        transform: translateY(-50%);
-        box-shadow: inset 1px 1px 2px rgba(255,255,255,0.1), 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .dpad-center {
-        position: absolute;
-        width: 22px;
-        height: 22px;
-        background: #222228;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
-    }
-
-    .ab-container {
-        padding-top: 8px;
-    }
-
-    .ab-buttons {
-        display: flex;
-        gap: 10px;
-        transform: rotate(-8deg);
-    }
-
-    .btn-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-    }
-
-    .btn-wrapper span {
-        font-family: 'Arial Black', sans-serif;
-        font-size: 9px;
-        font-weight: 900;
-        color: #060b96;
-        transform: rotate(-22deg);
-        margin-left: 24px;
-    }
-
-    .btn-a-wrapper {
-        margin-top: -16px;
-    }
-
-    .action-btn {
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        background: linear-gradient(145deg, #a03050, #802040);
-        border: none;
-        cursor: pointer;
-        box-shadow:
-            inset 2px 2px 4px rgba(255,255,255,0.2),
-            inset -1px -1px 3px rgba(0,0,0,0.2),
-            3px 3px 6px rgba(0,0,0,0.3);
-        transition: box-shadow 0.1s, transform 0.1s;
-    }
-
-    .action-btn:active {
-        box-shadow:
-            inset 3px 3px 6px rgba(0,0,0,0.3),
-            1px 1px 2px rgba(0,0,0,0.2);
-        transform: scale(0.96);
-    }
-
-    .start-select-section {
-        display: flex;
-        justify-content: center;
-        gap: 32px;
-        margin-bottom: 50px;
-        transform: rotate(-26deg);
-        margin-left: -20px;
-    }
-
-    .ss-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-    }
-
-    .ss-btn {
-        width: 32px;
-        height: 10px;
-        background: linear-gradient(to bottom, #7a7670, #6a6660);
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        box-shadow: inset 1px 1px 2px rgba(255,255,255,0.2), 2px 2px 4px rgba(0,0,0,0.2);
-    }
-
-    .ss-btn:active {
-        box-shadow: inset 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .ss-container span {
-        font-family: 'Arial', sans-serif;
-        font-size: 7px;
-        font-weight: bolder;
-        color: #060b96;
-        letter-spacing: 0.5px;
-    }
-
-    .speaker {
-        position: absolute;
-        bottom: 12px;
-        right: 36px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        transform: rotate(62deg);
-    }
-
-    .speaker-line {
-        width: 50px;
-        height: 5px;
-        background: linear-gradient(to bottom, #8a8680, #9a9690);
-        border-radius: 2px;
-        box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-    }
-
-    .bottom-vent {
-        position: absolute;
-        bottom: 8px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .vent-lines {
-        display: flex;
-        gap: 4px;
-    }
-
-    .vent-lines span {
-        width: 3px;
-        height: 10px;
-        background: #9a9690;
-        border-radius: 1px;
-        box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
-    }
-
-    .social-links {
-        position: fixed;
-        bottom: 24px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 24px;
-    }
-
-    .social-links a {
-        font-family: 'Press Start 2P', monospace;
-        font-size: 8px;
-        color: #6a6a7a;
-        text-decoration: none;
-        transition: color 0.2s;
-    }
-
-    .social-links a:hover {
-        color: #9a9aaa;
-    }
-
-    .hidden {
-        display: none !important;
-    }
-
-    .about-list {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .about-item {
-        font-family: 'Press Start 2P', monospace;
-        font-size: 7px;
-        color: #2a3420;
-        padding: 3px 6px;
-    }
-
-    .back-btn {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-family: 'Press Start 2P', monospace;
-        font-size: 8px;
-        color: #2a3420;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 3px 6px;
-        margin-top: 12px;
-        border-radius: 2px;
-        transition: background 0.15s;
-    }
-
-    .back-btn:hover {
-        background: #8a9660;
-    }
-
-    .back-btn span:first-child {
-        font-size: 7px;
-    }
-
-    @media (min-width: 640px) {
-        .cartridge-slot {
-            width: 310px;
-            height: 28px;
-        }
-
-        .body {
-            width: 340px;
-            padding: 20px;
-        }
-
-        .screen {
-            margin-left: 36px;
-        }
-
-        .screen-inner {
-            min-height: 170px;
-        }
-
-        .game-content {
-            min-height: 158px;
-        }
-
-        .game-title {
-            font-size: 13px;
-        }
-
-        .game-subtitle {
-            font-size: 8px;
-        }
-
-        .menu-item {
-            font-size: 9px;
-        }
-
-        .gameboy-text {
-            font-size: 24px;
-        }
-
-        .dpad {
-            width: 80px;
-            height: 80px;
-        }
-
-        .dpad-vertical {
-            width: 26px;
-            height: 80px;
-        }
-
-        .dpad-horizontal {
-            width: 80px;
-            height: 26px;
-        }
-
-        .dpad-center {
-            width: 26px;
-            height: 26px;
-        }
-
-        .action-btn {
-            width: 44px;
-            height: 44px;
-        }
-    }
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  #terminal {
+    font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    line-height: 1.6;
+  }
+
+  #terminal::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  #terminal::-webkit-scrollbar-track {
+    background: #1e1e1e;
+  }
+
+  #terminal::-webkit-scrollbar-thumb {
+    background: #3a3a3a;
+    border-radius: 4px;
+  }
+
+  .typing-animation {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 0.5s steps(40, end);
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  #cursor {
+    animation: blink 1s step-end infinite;
+  }
+
+  .menu-item {
+    transition: all 0.1s ease;
+  }
+
+  .menu-item.selected {
+    background: rgba(107, 193, 255, 0.1);
+  }
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const mainScreen = document.getElementById('main-screen');
-        const aboutScreen = document.getElementById('about-screen');
-        const aboutBtn = document.getElementById('about-btn');
-        const backBtn = document.getElementById('back-btn');
+  const terminal = document.getElementById('terminal')!;
+  const output = document.getElementById('output')!;
+  const currentInput = document.getElementById('current-input')!;
+  const cursor = document.getElementById('cursor')!;
 
-        aboutBtn?.addEventListener('click', (e) => {
-            e.preventDefault();
-            mainScreen?.classList.add('hidden');
-            aboutScreen?.classList.remove('hidden');
-        });
+  let inputBuffer = '';
+  let commandHistory: string[] = [];
+  let historyIndex = -1;
+  let menuMode = false;
+  let menuItems: string[] = [];
+  let menuIndex = 0;
+  let currentMenu = '';
 
-        backBtn?.addEventListener('click', () => {
-            aboutScreen?.classList.add('hidden');
-            mainScreen?.classList.remove('hidden');
-        });
+  const commands: Record<string, () => void> = {
+    help: showHelp,
+    about: showAbout,
+    projects: showProjects,
+    skills: showSkills,
+    contact: showContact,
+    clear: clearTerminal,
+    welcome: showWelcome,
+  };
+
+  const commandList = Object.keys(commands);
+
+  function typeText(text: string, element: HTMLElement, speed = 10): Promise<void> {
+    return new Promise((resolve) => {
+      let i = 0;
+      element.textContent = '';
+      const interval = setInterval(() => {
+        if (i < text.length) {
+          element.textContent += text[i];
+          i++;
+          scrollToBottom();
+        } else {
+          clearInterval(interval);
+          resolve();
+        }
+      }, speed);
     });
+  }
+
+  function addLine(content: string, className = '') {
+    const line = document.createElement('div');
+    line.className = className;
+    line.innerHTML = content;
+    output.appendChild(line);
+    scrollToBottom();
+  }
+
+  function addPromptLine(command: string) {
+    addLine(`<span class="text-[#27ca3f]">➜</span> <span class="text-[#6bc1ff]">~</span> <span class="text-white">${command}</span>`);
+  }
+
+  function scrollToBottom() {
+    terminal.scrollTop = terminal.scrollHeight;
+  }
+
+  function clearTerminal() {
+    output.innerHTML = '';
+    exitMenu();
+  }
+
+  function showWelcome() {
+    addLine('<pre class="text-[#6bc1ff] leading-none"> █████╗ ██╗     ███████╗██╗  ██╗\n██╔══██╗██║     ██╔════╝╚██╗██╔╝\n███████║██║     █████╗   ╚███╔╝\n██╔══██║██║     ██╔══╝   ██╔██╗\n██║  ██║███████╗███████╗██╔╝ ██╗\n╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝</pre>');
+    addLine('');
+    addLine('<span class="text-[#a0a0a0]">Welcome to my interactive portfolio terminal.</span>');
+    addLine('<span class="text-[#a0a0a0]">Type <span class="text-[#ffbd2e]">help</span> to see available commands.</span>');
+    addLine('');
+  }
+
+  function showHelp() {
+    addLine('');
+    addLine('<span class="text-[#ffbd2e]">Available commands:</span>');
+    addLine('');
+    addLine('  <span class="text-[#27ca3f]">about</span>      <span class="text-[#a0a0a0]">- Learn about me</span>');
+    addLine('  <span class="text-[#27ca3f]">projects</span>   <span class="text-[#a0a0a0]">- View my projects</span>');
+    addLine('  <span class="text-[#27ca3f]">skills</span>     <span class="text-[#a0a0a0]">- See my technical skills</span>');
+    addLine('  <span class="text-[#27ca3f]">contact</span>    <span class="text-[#a0a0a0]">- Get in touch</span>');
+    addLine('  <span class="text-[#27ca3f]">clear</span>      <span class="text-[#a0a0a0]">- Clear the terminal</span>');
+    addLine('  <span class="text-[#27ca3f]">help</span>       <span class="text-[#a0a0a0]">- Show this message</span>');
+    addLine('');
+  }
+
+  function showAbout() {
+    addLine('');
+    addLine('<span class="text-[#6bc1ff]">━━━ About Me ━━━</span>');
+    addLine('');
+    addLine('<span class="text-white">Álex Santos</span>');
+    addLine('<span class="text-[#a0a0a0]">Software Developer from Asturias, Spain</span>');
+    addLine('');
+    addLine('<span class="text-[#a0a0a0]">I craft iOS & web applications with a focus on</span>');
+    addLine('<span class="text-[#a0a0a0]">minimalist UI/UX design. Passionate about creating</span>');
+    addLine('<span class="text-[#a0a0a0]">products that people enjoy using.</span>');
+    addLine('');
+    addLine('<span class="text-[#27ca3f]">→</span> <span class="text-[#a0a0a0]">Location:</span>  <span class="text-white">Asturias, Spain</span>');
+    addLine('<span class="text-[#27ca3f]">→</span> <span class="text-[#a0a0a0]">Focus:</span>     <span class="text-white">iOS, Web, UI/UX</span>');
+    addLine('<span class="text-[#27ca3f]">→</span> <span class="text-[#a0a0a0]">Languages:</span> <span class="text-white">Spanish, English</span>');
+    addLine('');
+  }
+
+  function showProjects() {
+    menuMode = true;
+    currentMenu = 'projects';
+    menuItems = ['stride', 'back'];
+    menuIndex = 0;
+
+    addLine('');
+    addLine('<span class="text-[#6bc1ff]">━━━ Projects ━━━</span>');
+    addLine('<span class="text-[#a0a0a0]">Use ↑↓ to navigate, Enter to select, Esc to go back</span>');
+    addLine('');
+    renderProjectsMenu();
+  }
+
+  function renderProjectsMenu() {
+    const menuContainer = document.getElementById('projects-menu');
+    if (menuContainer) menuContainer.remove();
+
+    const menu = document.createElement('div');
+    menu.id = 'projects-menu';
+
+    const projects = [
+      { id: 'stride', name: 'Stride', desc: 'iOS steps tracking app', tech: 'Expo, SwiftUI, HealthKit' },
+    ];
+
+    projects.forEach((project, i) => {
+      const selected = menuIndex === i;
+      menu.innerHTML += `
+        <div class="menu-item py-2 px-3 rounded ${selected ? 'selected bg-[#2a2a3e]' : ''}">
+          <span class="text-[#ffbd2e]">${selected ? '▶' : ' '}</span>
+          <span class="text-[#27ca3f] ml-2">${project.name}</span>
+          <span class="text-[#a0a0a0] ml-2">- ${project.desc}</span>
+          <div class="ml-6 text-[#6b7280] text-xs mt-1">${project.tech}</div>
+        </div>
+      `;
+    });
+
+    // Back option
+    const backSelected = menuIndex === projects.length;
+    menu.innerHTML += `
+      <div class="menu-item py-2 px-3 rounded mt-2 ${backSelected ? 'selected bg-[#2a2a3e]' : ''}">
+        <span class="text-[#ffbd2e]">${backSelected ? '▶' : ' '}</span>
+        <span class="text-[#ff5f56] ml-2">← Back</span>
+      </div>
+    `;
+
+    output.appendChild(menu);
+    scrollToBottom();
+  }
+
+  function selectProject(index: number) {
+    if (index === menuItems.length - 1) {
+      exitMenu();
+      addLine('<span class="text-[#a0a0a0]">Returned to main prompt.</span>');
+      addLine('');
+      return;
+    }
+
+    const projectId = menuItems[index];
+    exitMenu();
+
+    if (projectId === 'stride') {
+      addLine('');
+      addLine('<span class="text-[#6bc1ff]">━━━ Stride ━━━</span>');
+      addLine('');
+      addLine('<span class="text-[#ffbd2e]">iOS Steps Tracking App</span>');
+      addLine('');
+      addLine('<span class="text-[#a0a0a0]">A beautiful steps tracking application for iOS</span>');
+      addLine('<span class="text-[#a0a0a0]">with seamless HealthKit integration and a focus</span>');
+      addLine('<span class="text-[#a0a0a0]">on user experience and clean design.</span>');
+      addLine('');
+      addLine('<span class="text-[#27ca3f]">→</span> <span class="text-[#a0a0a0]">Tech:</span>      <span class="text-white">Expo, SwiftUI, HealthKit</span>');
+      addLine('<span class="text-[#27ca3f]">→</span> <span class="text-[#a0a0a0]">Platform:</span>  <span class="text-white">iOS</span>');
+      addLine('<span class="text-[#27ca3f]">→</span> <span class="text-[#a0a0a0]">Status:</span>    <span class="text-[#27ca3f]">Active</span>');
+      addLine('');
+      addLine('<span class="text-[#6bc1ff]">→ <a href="/stride" class="underline hover:text-white">View Project Page</a></span>');
+      addLine('');
+    }
+  }
+
+  function showSkills() {
+    addLine('');
+    addLine('<span class="text-[#6bc1ff]">━━━ Skills ━━━</span>');
+    addLine('');
+    addLine('<span class="text-[#ffbd2e]">Languages</span>');
+    addLine('  <span class="text-white">JavaScript</span>  <span class="text-[#27ca3f]">████████████████████</span> Expert');
+    addLine('  <span class="text-white">TypeScript</span>  <span class="text-[#27ca3f]">██████████████████░░</span> Advanced');
+    addLine('  <span class="text-white">Python</span>      <span class="text-[#27ca3f]">██████████████░░░░░░</span> Intermediate');
+    addLine('');
+    addLine('<span class="text-[#ffbd2e]">Frameworks</span>');
+    addLine('  <span class="text-white">React</span>       <span class="text-[#6bc1ff]">████████████████████</span> Expert');
+    addLine('  <span class="text-white">Next.js</span>       <span class="text-[#6bc1ff]">████████████████████</span> Expert');
+    addLine('  <span class="text-white">Astro</span>       <span class="text-[#6bc1ff]">████████████████████</span> Expert');
+    addLine('  <span class="text-white">Tailwind CSS</span>       <span class="text-[#6bc1ff]">████████████████████</span> Expert');
+    addLine('  <span class="text-white">Expo / React Native</span>       <span class="text-[#6bc1ff]">████████████████░░░░</span> Advanced');
+    addLine('  <span class="text-white">Node.js</span>     <span class="text-[#6bc1ff]">██████████████████░░</span> Advanced');
+    addLine('  <span class="text-white">SwiftUI</span>     <span class="text-[#6bc1ff]">████████████████░░░░</span> Advanced');
+    addLine('');
+    addLine('<span class="text-[#ffbd2e]">Tools</span>');
+    addLine('  <span class="text-[#a0a0a0]">Git, Docker, Figma, Supabase</span>');
+    addLine('');
+  }
+
+  function showContact() {
+    menuMode = true;
+    currentMenu = 'contact';
+    menuItems = ['email', 'github', 'linkedin', 'x', 'back'];
+    menuIndex = 0;
+
+    addLine('');
+    addLine('<span class="text-[#6bc1ff]">━━━ Contact ━━━</span>');
+    addLine('<span class="text-[#a0a0a0]">Use ↑↓ to navigate, Enter to open link, Esc to go back</span>');
+    addLine('');
+    renderContactMenu();
+  }
+
+  function renderContactMenu() {
+    const menuContainer = document.getElementById('contact-menu');
+    if (menuContainer) menuContainer.remove();
+
+    const menu = document.createElement('div');
+    menu.id = 'contact-menu';
+
+    const contacts = [
+      { id: 'email', name: 'Email', value: 'hello@asantinos.com', url: 'mailto:hello@asantinos.com' },
+      { id: 'github', name: 'GitHub', value: 'github.com/asantinos', url: 'https://github.com/asantinos' },
+      { id: 'linkedin', name: 'LinkedIn', value: 'linkedin.com/in/asantinos', url: 'https://linkedin.com/in/asantinos' },
+      { id: 'x', name: 'X', value: 'x.com/alexgrok', url: 'https://x.com/alexgrok' },
+    ];
+
+    contacts.forEach((contact, i) => {
+      const selected = menuIndex === i;
+      menu.innerHTML += `
+        <div class="menu-item py-2 px-3 rounded ${selected ? 'selected bg-[#2a2a3e]' : ''}" data-url="${contact.url}">
+          <span class="text-[#ffbd2e]">${selected ? '▶' : ' '}</span>
+          <span class="text-[#27ca3f] ml-2">${contact.name}</span>
+          <span class="text-[#a0a0a0] ml-2">→ ${contact.value}</span>
+        </div>
+      `;
+    });
+
+    // Back option
+    const backSelected = menuIndex === contacts.length;
+    menu.innerHTML += `
+      <div class="menu-item py-2 px-3 rounded mt-2 ${backSelected ? 'selected bg-[#2a2a3e]' : ''}">
+        <span class="text-[#ffbd2e]">${backSelected ? '▶' : ' '}</span>
+        <span class="text-[#ff5f56] ml-2">← Back</span>
+      </div>
+    `;
+
+    output.appendChild(menu);
+    scrollToBottom();
+  }
+
+  function selectContact(index: number) {
+    const contacts = [
+      { url: 'mailto:hello@asantinos.com' },
+      { url: 'https://github.com/asantinos' },
+      { url: 'https://linkedin.com/in/asantinos' },
+      { url: 'https://x.com/alexgrok' },
+    ];
+
+    if (index === menuItems.length - 1) {
+      exitMenu();
+      addLine('<span class="text-[#a0a0a0]">Returned to main prompt.</span>');
+      addLine('');
+      return;
+    }
+
+    window.open(contacts[index].url, '_blank');
+  }
+
+  function exitMenu() {
+    menuMode = false;
+    currentMenu = '';
+    menuItems = [];
+    menuIndex = 0;
+    const projectsMenu = document.getElementById('projects-menu');
+    const contactMenu = document.getElementById('contact-menu');
+    if (projectsMenu) projectsMenu.remove();
+    if (contactMenu) contactMenu.remove();
+  }
+
+  function executeCommand(cmd: string) {
+    const trimmed = cmd.trim().toLowerCase();
+    addPromptLine(cmd);
+
+    if (trimmed === '') {
+      return;
+    }
+
+    if (commands[trimmed]) {
+      commands[trimmed]();
+    } else {
+      addLine(`<span class="text-[#ff5f56]">zsh: command not found: ${cmd}</span>`);
+      addLine('<span class="text-[#a0a0a0]">Type <span class="text-[#ffbd2e]">help</span> to see available commands.</span>');
+      addLine('');
+    }
+
+    if (trimmed !== '') {
+      commandHistory.unshift(trimmed);
+      if (commandHistory.length > 50) commandHistory.pop();
+    }
+    historyIndex = -1;
+  }
+
+  function autocomplete(partial: string): string {
+    const matches = commandList.filter(cmd => cmd.startsWith(partial.toLowerCase()));
+    if (matches.length === 1) {
+      return matches[0];
+    } else if (matches.length > 1) {
+      addPromptLine(partial);
+      addLine('<span class="text-[#a0a0a0]">' + matches.join('  ') + '</span>');
+      return partial;
+    }
+    return partial;
+  }
+
+  function updateInput() {
+    currentInput.textContent = inputBuffer;
+  }
+
+  // Keyboard handler
+  terminal.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (menuMode) {
+      // Menu navigation
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        menuIndex = Math.max(0, menuIndex - 1);
+        if (currentMenu === 'projects') renderProjectsMenu();
+        if (currentMenu === 'contact') renderContactMenu();
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        menuIndex = Math.min(menuItems.length - 1, menuIndex + 1);
+        if (currentMenu === 'projects') renderProjectsMenu();
+        if (currentMenu === 'contact') renderContactMenu();
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (currentMenu === 'projects') selectProject(menuIndex);
+        if (currentMenu === 'contact') selectContact(menuIndex);
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        exitMenu();
+        addLine('<span class="text-[#a0a0a0]">Returned to main prompt.</span>');
+        addLine('');
+      }
+      return;
+    }
+
+    // Normal command mode
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      executeCommand(inputBuffer);
+      inputBuffer = '';
+      updateInput();
+    } else if (e.key === 'Backspace') {
+      e.preventDefault();
+      inputBuffer = inputBuffer.slice(0, -1);
+      updateInput();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (commandHistory.length > 0) {
+        historyIndex = Math.min(historyIndex + 1, commandHistory.length - 1);
+        inputBuffer = commandHistory[historyIndex];
+        updateInput();
+      }
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIndex > 0) {
+        historyIndex--;
+        inputBuffer = commandHistory[historyIndex];
+      } else {
+        historyIndex = -1;
+        inputBuffer = '';
+      }
+      updateInput();
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      inputBuffer = autocomplete(inputBuffer);
+      updateInput();
+    } else if (e.key === 'Escape') {
+      e.preventDefault();
+      inputBuffer = '';
+      updateInput();
+    } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
+      e.preventDefault();
+      inputBuffer += e.key;
+      updateInput();
+    } else if (e.ctrlKey && e.key === 'l') {
+      e.preventDefault();
+      clearTerminal();
+    } else if (e.ctrlKey && e.key === 'c') {
+      e.preventDefault();
+      addPromptLine(inputBuffer + '^C');
+      inputBuffer = '';
+      updateInput();
+    }
+  });
+
+  // Focus terminal on click
+  terminal.addEventListener('click', () => {
+    terminal.focus();
+  });
+
+  // Initialize on DOM ready
+  document.addEventListener('DOMContentLoaded', () => {
+    terminal.focus();
+    showWelcome();
+  });
 </script>
