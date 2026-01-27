@@ -1,5 +1,5 @@
 ---
-import Layout from "../../layouts/StrideLayout.astro";
+import Layout from "../../../layouts/StrideLayout.astro";
 
 const appName = "Stride - Simple Pedometer";
 const tagline = "A calm, minimal step tracker.";
@@ -35,7 +35,7 @@ const changelog = [
 ];
 ---
 
-<Layout title={`${appName} - ${subtitle}`} description={tagline}>
+<Layout title={`${appName}`} description={tagline}>
   <main class="min-h-screen px-6 py-16">
     <div class="max-w-2xl mx-auto">
       <!-- App Store-style Header -->
@@ -45,7 +45,7 @@ const changelog = [
             class="h-24 w-24 sm:h-32 sm:w-32 shrink-0 rounded-[22px] bg-[#3474cf] ring-1 ring-neutral-800 flex items-center justify-center overflow-hidden"
           >
             <img
-              src="/icons/stride.png"
+              src="/apps/stride/icons/stride.webp"
               alt="Stride Logo"
               class="w-full h-full"
             />
@@ -74,7 +74,7 @@ const changelog = [
                 )
               }
               <a
-                href="/stride/privacy"
+                href="/apps/stride/privacy"
                 class="text-sm text-blue-400 hover:text-blue-300 transition-colors"
               >
                 Privacy Policy

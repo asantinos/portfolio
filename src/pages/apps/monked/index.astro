@@ -1,0 +1,210 @@
+---
+import Layout from "../../../layouts/MonkedLayout.astro";
+
+const appName = "Monked - Habit Tracker";
+const tagline = "A calm habit tracker for focus and discipline.";
+const subtitle = "Habit tracker, journal & meditation";
+const developer = "asantinos";
+
+const APPLE_ID = "";
+
+const appStoreUrl = "";
+// const appStoreUrl = APPLE_ID ? `https://apps.apple.com/app/id${APPLE_ID}` : "";
+
+const features = [
+  "Today view: habits at a glance",
+  "One-tap habit completion",
+  "Custom goals (times per week)",
+  "Journal entries",
+  "Meditation timer",
+  "No accounts, no ads, no tracking",
+];
+
+const roadmap = [
+  { text: "Export & import data", done: false },
+  { text: "More background sounds", done: false },
+  { text: "Home and lock screen widgets", done: false },
+];
+
+const changelog = [
+  {
+    version: "1.0.0",
+    date: "Coming Soon",
+    changes: ["Initial release"],
+  },
+];
+---
+
+<Layout title={`${appName}`} description={tagline}>
+  <main class="min-h-screen px-6 py-16">
+    <div class="max-w-2xl mx-auto">
+      <!-- App Store-style Header -->
+      <header>
+        <div class="flex items-start gap-5">
+          <div
+            class="h-24 w-24 sm:h-32 sm:w-32 shrink-0 rounded-[22px] bg-[#f08a24] ring-1 ring-neutral-800 flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src="/apps/monked/icons/monked.webp"
+              alt="Monked Logo"
+              class="w-full h-full"
+            />
+          </div>
+
+          <div class="flex-1 min-w-0">
+            <h1 class="text-xl sm:text-2xl font-bold tracking-tight">
+              {appName}
+            </h1>
+            <p class="text-sm text-neutral-400 mt-0.5">{subtitle}</p>
+            <p class="text-sm text-neutral-500 mt-1">{developer}</p>
+
+            <!-- Buttons: hidden on mobile, shown on sm+ -->
+            <div class="hidden sm:flex mt-3 items-center gap-3">
+              {
+                appStoreUrl ? (
+                  <a
+                    target="_blank"
+                    href={appStoreUrl}
+                    class="inline-flex items-center gap-1.5 rounded-full bg-blue-500 px-4 py-1.5 text-sm font-semibold text-white hover:bg-blue-400 transition-colors"
+                  >
+                    GET
+                  </a>
+                ) : (
+                  <span class="inline-flex items-center rounded-full bg-neutral-800 px-4 py-1.5 text-sm font-medium text-neutral-400">
+                    Coming Soon
+                  </span>
+                )
+              }
+              <a
+                href="/apps/monked/privacy"
+                class="text-sm text-blue-400 hover:text-blue-300 transition-colors"
+              >
+                Privacy Policy
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Buttons: shown on mobile, hidden on sm+ -->
+        <div class="flex sm:hidden mt-5 items-center gap-3">
+          {
+            appStoreUrl ? (
+              <a
+                target="_blank"
+                href={appStoreUrl}
+                class="inline-flex items-center gap-1.5 rounded-full bg-blue-500 px-4 py-1.5 text-sm font-semibold text-white hover:bg-blue-400 transition-colors"
+              >
+                GET
+              </a>
+            ) : (
+              <span class="inline-flex items-center rounded-full bg-neutral-800 px-4 py-1.5 text-sm font-medium text-neutral-400">
+                Coming Soon
+              </span>
+            )
+          }
+          <a
+            href="/monked/privacy"
+            class="text-sm text-blue-400 hover:text-blue-300 transition-colors"
+          >
+            Privacy Policy
+          </a>
+        </div>
+      </header>
+
+      <!-- Description -->
+      <p class="mt-8 text-neutral-300 leading-relaxed">
+        {tagline} Track your habits, write a short journal entry, and meditate with
+        a simple timer — all in a quiet, focused interface.
+      </p>
+
+      <!-- Features -->
+      <section class="mt-10">
+        <h2 class="text-lg font-semibold mb-4">Features</h2>
+        <ul class="space-y-2">
+          {
+            features.map((feature) => (
+              <li class="text-neutral-400 text-sm flex items-center gap-2">
+                <span class="text-blue-400">•</span>
+                {feature}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <!-- Roadmap -->
+      <section class="mt-10">
+        <h2 class="text-lg font-semibold mb-4">Roadmap</h2>
+        <ul class="space-y-2">
+          {
+            roadmap.map((item) => (
+              <li class="text-sm flex items-center gap-2">
+                <span
+                  class={`w-4 h-4 rounded flex items-center justify-center text-xs ${item.done ? "bg-green-500/20 text-green-400" : "bg-neutral-800 text-neutral-500"}`}
+                >
+                  {item.done ? "✓" : "○"}
+                </span>
+                <span
+                  class={item.done ? "text-neutral-300" : "text-neutral-400"}
+                >
+                  {item.text}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <!-- Changelog -->
+      <section class="mt-10">
+        <h2 class="text-lg font-semibold mb-4">Changelog</h2>
+        <div class="space-y-4">
+          {
+            changelog.map((release) => (
+              <div>
+                <div class="flex items-baseline gap-2">
+                  <span class="text-sm font-medium text-neutral-200">
+                    v{release.version}
+                  </span>
+                  <span class="text-xs text-neutral-500">{release.date}</span>
+                </div>
+                <ul class="mt-1 space-y-1">
+                  {release.changes.map((change) => (
+                    <li class="text-sm text-neutral-400">— {change}</li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="mt-10 pt-8 border-t border-neutral-800">
+        <h2 class="text-lg font-semibold mb-4">Contact</h2>
+        <p class="text-sm text-neutral-400">
+          Questions or feedback? Reach out at{" "}
+          <a
+            href="mailto:hello@asantinos.com"
+            class="text-blue-400 hover:text-blue-300 transition-colors"
+          >
+            hello@asantinos.com
+          </a>
+        </p>
+      </section>
+
+      <!-- Footer -->
+      <footer class="mt-10 pt-6 border-t border-neutral-800 text-center">
+        <p class="text-sm text-neutral-500">
+          © {new Date().getFullYear()} asantinos
+        </p>
+        <a
+          href="https://asantinos.com"
+          class="text-sm text-neutral-500 hover:text-neutral-300 transition-colors"
+        >
+          asantinos.com
+        </a>
+      </footer>
+    </div>
+  </main>
+</Layout>
