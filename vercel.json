@@ -1,0 +1,26 @@
+{
+    "redirects": [
+        {
+            "source": "/",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "stride.asantinos.com"
+                }
+            ],
+            "destination": "/apps/stride",
+            "permanent": true
+        },
+        {
+            "source": "/",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "monked.asantinos.com"
+                }
+            ],
+            "destination": "/apps/monked",
+            "permanent": true
+        }
+    ]
+}
