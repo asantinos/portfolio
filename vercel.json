@@ -1,24 +1,24 @@
 {
     "rewrites": [
         {
-            "source": "/",
+            "source": "/:path*",
             "has": [
                 {
                     "type": "host",
                     "value": "stride.asantinos.com"
                 }
             ],
-            "destination": "/apps/stride"
+            "destination": "/apps/stride/:path*"
         },
         {
-            "source": "/",
+            "source": "/:path*",
             "has": [
                 {
                     "type": "host",
                     "value": "monked.asantinos.com"
                 }
             ],
-            "destination": "/apps/monked"
+            "destination": "/apps/monked/:path*"
         }
     ]
 }
