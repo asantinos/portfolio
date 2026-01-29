@@ -8,8 +8,7 @@
                     "value": "stride.asantinos.com"
                 }
             ],
-            "destination": "/apps/stride",
-            "permanent": true
+            "destination": "/apps/stride"
         },
         {
             "source": "/",
@@ -19,8 +18,7 @@
                     "value": "monked.asantinos.com"
                 }
             ],
-            "destination": "/apps/monked",
-            "permanent": true
+            "destination": "/apps/monked"
         }
     ]
 }
