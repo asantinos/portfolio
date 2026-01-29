@@ -1,4 +1,16 @@
 {
+    "redirects": [
+        {
+            "source": "/apps/stride/:path*",
+            "destination": "https://stride.asantinos.com/:path*",
+            "permanent": true
+        },
+        {
+            "source": "/apps/monked/:path*",
+            "destination": "https://monked.asantinos.com/:path*",
+            "permanent": true
+        }
+    ],
     "rewrites": [
         {
             "source": "/:path*",
