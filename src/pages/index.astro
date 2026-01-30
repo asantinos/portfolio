@@ -2,991 +2,493 @@
 import Layout from "../layouts/RootLayout.astro";
 ---
 
-<Layout title="Álex Santos | Terminal" description="Software Developer">
-  <div class="min-h-screen bg-[#1a1a2e] flex items-center justify-center p-4">
-    <!-- Terminal Window -->
-    <div class="w-full max-w-3xl">
-      <!-- Terminal Header -->
-      <div class="bg-[#3a3a3a] rounded-t-lg px-4 py-3 flex items-center gap-2">
-        <div class="flex gap-2">
-          <div
-            class="w-3 h-3 rounded-full bg-[#ff5f56] hover:brightness-110 cursor-pointer"
-          >
-          </div>
-          <div
-            class="w-3 h-3 rounded-full bg-[#ffbd2e] hover:brightness-110 cursor-pointer"
-          >
-          </div>
-          <div
-            class="w-3 h-3 rounded-full bg-[#27ca3f] hover:brightness-110 cursor-pointer"
-          >
-          </div>
+<Layout title="Álex Santos | Software Developer" description="Software Developer from Asturias, Spain. Crafting iOS & web applications with a focus on minimalist design.">
+  <div class="page">
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-content">
+        <span class="greeting">Hello, I'm</span>
+        <h1 class="name">Álex Santos</h1>
+        <p class="tagline">Software Developer crafting <em>iOS & web applications</em> with a focus on minimalist design.</p>
+        <div class="location">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Spain</span>
         </div>
-        <div class="flex-1 text-center">
-          <span class="text-[#a0a0a0] text-sm font-medium"
-            >alex@portfolio — zsh</span
-          >
-        </div>
-        <div class="w-14"></div>
       </div>
+    </header>
 
-      <!-- Terminal Body -->
-      <div
-        id="terminal"
-        class="bg-[#1e1e1e] rounded-b-lg p-4 font-mono text-sm min-h-[500px] max-h-[70vh] overflow-y-auto focus:outline-none relative"
-        tabindex="0"
-      >
-        <div id="output"></div>
-        <div id="input-line" class="flex items-start">
-          <span class="text-[#27ca3f] mr-2 shrink-0">➜</span>
-          <span class="text-[#6bc1ff] mr-2 shrink-0">~</span>
-          <span id="current-input" class="text-white"></span>
-          <span id="cursor" class="bg-white w-2 h-5 inline-block animate-pulse"
-          ></span>
-        </div>
-        <!-- Hidden input for mobile keyboard -->
-        <input
-          type="text"
-          id="mobile-input"
-          class="absolute top-0 left-0 w-full h-full opacity-0 pointer-events-none"
-          autocomplete="off"
-          autocorrect="off"
-          autocapitalize="off"
-          spellcheck="false"
-        />
+    <!-- About Section -->
+    <section class="section about" id="about">
+      <h2 class="section-title">About</h2>
+      <div class="about-content">
+        <p>I craft digital experiences with a focus on clean aesthetics and intuitive interactions. My work spans from native iOS applications to modern web platforms, always prioritizing user experience and thoughtful design.</p>
+        <p>Passionate about creating products that people genuinely enjoy using—where every detail serves a purpose.</p>
       </div>
+    </section>
 
-      <!-- Instructions -->
-      <div class="mt-4 text-center text-[#6b7280] text-sm">
-        <p>
-          Type a command or use <kbd
-            class="px-2 py-1 bg-[#2a2a3e] rounded text-xs">↑</kbd
-          >
-          <kbd class="px-2 py-1 bg-[#2a2a3e] rounded text-xs">↓</kbd> to navigate
-          history · <kbd class="px-2 py-1 bg-[#2a2a3e] rounded text-xs"
-            >Enter</kbd
-          > to execute · <kbd class="px-2 py-1 bg-[#2a2a3e] rounded text-xs"
-            >Tab</kbd
-          > to autocomplete
-        </p>
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <a href="https://stride.asantinos.com" target="_blank" rel="noopener noreferrer" class="project-card">
+          <div class="project-header">
+            <h3 class="project-name">Stride</h3>
+            <span class="project-status active">Active</span>
+          </div>
+          <p class="project-desc">A beautiful steps tracking application for iOS with seamless HealthKit integration and a focus on user experience.</p>
+          <div class="project-tech">
+            <span>Expo</span>
+            <span>HealthKit</span>
+          </div>
+          <span class="project-link">View Project →</span>
+        </a>
+
+        <a href="https://monked.asantinos.com" target="_blank" rel="noopener noreferrer" class="project-card monked">
+          <div class="project-header">
+            <h3 class="project-name">Monked</h3>
+            <span class="project-status dev">In Development</span>
+          </div>
+          <p class="project-desc">A calm app focused on discipline and mindfulness through habits, journaling, and meditation practice.</p>
+          <div class="project-tech">
+            <span>Expo</span>
+            <span>SwiftUI</span>
+            <span>SQLite</span>
+          </div>
+          <span class="project-link">View Project →</span>
+        </a>
       </div>
-    </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <ul>
+            <li>JavaScript</li>
+            <li>TypeScript</li>
+            <li>Python</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Frameworks</h3>
+          <ul>
+            <li>React / Next.js</li>
+            <li>Astro</li>
+            <li>Expo / React Native</li>
+            <li>Node.js</li>
+            <li>SwiftUI</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Tools & More</h3>
+          <ul>
+            <li>Tailwind CSS</li>
+            <li>Git</li>
+            <li>Docker</li>
+            <li>Figma</li>
+            <li>Supabase</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="contact-intro">Interested in working together or just want to say hello?</p>
+      <div class="contact-links">
+        <a href="mailto:hello@asantinos.com" class="contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span>hello@asantinos.com</span>
+        </a>
+        <a href="https://github.com/asantinos" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          <span>GitHub</span>
+        </a>
+        <a href="https://linkedin.com/in/asantinos" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://x.com/alexgrok" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+          <span>X (Twitter)</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2025 Álex Santos</p>
+    </footer>
   </div>
 </Layout>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Serif+Display:ital@0;1&display=swap');
 
-  #terminal {
-    font-family: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+  :root {
+    --color-bg: #faf9f7;
+    --color-bg-alt: #f3f1ed;
+    --color-text: #2c2c2c;
+    --color-text-muted: #6b6b6b;
+    --color-accent: #c4a574;
+    --color-accent-hover: #b39259;
+    --color-border: #e5e2dc;
+    --color-success: #5a8a6c;
+    --color-warning: #c9943a;
+    --font-serif: 'DM Serif Display', Georgia, serif;
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  .page {
+    min-height: 100vh;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 70%;
+    height: 150%;
+    background: radial-gradient(ellipse at center, rgba(196, 165, 116, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 600px;
+    text-align: center;
+    animation: fadeUp 0.8s ease-out;
+  }
+
+  .greeting {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .name {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0 0 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .tagline {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin: 0 0 2rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tagline em {
+    font-style: italic;
+    color: var(--color-text);
+  }
+
+  .location {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .location svg {
+    opacity: 0.7;
+  }
+
+  /* Sections */
+  .section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0 0 2.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  /* About */
+  .about-content p {
+    margin: 0 0 1.25rem;
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+  }
+
+  .about-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Projects */
+  .projects-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    display: block;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    border-color: var(--color-accent);
+  }
+
+  .project-card.monked {
+    background: linear-gradient(135deg, var(--color-bg-alt) 0%, #f7f3eb 100%);
+  }
+
+  .project-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .project-name {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .project-status {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .project-status.active {
+    background: rgba(90, 138, 108, 0.15);
+    color: var(--color-success);
+  }
+
+  .project-status.dev {
+    background: rgba(201, 148, 58, 0.15);
+    color: var(--color-warning);
+  }
+
+  .project-desc {
+    color: var(--color-text-muted);
+    margin: 0 0 1.25rem;
     line-height: 1.6;
   }
 
-  #terminal::-webkit-scrollbar {
-    width: 8px;
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
   }
 
-  #terminal::-webkit-scrollbar-track {
-    background: #1e1e1e;
-  }
-
-  #terminal::-webkit-scrollbar-thumb {
-    background: #3a3a3a;
+  .project-tech span {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    background: var(--color-bg);
+    padding: 0.25rem 0.75rem;
     border-radius: 4px;
+    border: 1px solid var(--color-border);
   }
 
-  .typing-animation {
-    overflow: hidden;
-    white-space: nowrap;
-    animation: typing 0.5s steps(40, end);
+  .project-link {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    font-weight: 500;
+    transition: color 0.2s ease;
   }
 
-  @keyframes typing {
+  .project-card:hover .project-link {
+    color: var(--color-accent-hover);
+  }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 3rem;
+  }
+
+  .skill-group h3 {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0 0 1rem;
+    color: var(--color-text);
+  }
+
+  .skill-group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .skill-group li {
+    color: var(--color-text-muted);
+    padding: 0.4rem 0;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .skill-group li:last-child {
+    border-bottom: none;
+  }
+
+  /* Contact */
+  .contact-intro {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    margin: 0 0 2rem;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.5rem;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+  }
+
+  .contact-link:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
+    border-color: var(--color-text);
+  }
+
+  .contact-link svg {
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+
+  .contact-link:hover svg {
+    opacity: 1;
+  }
+
+  /* Footer */
+  .footer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+  }
+
+  .footer p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
     from {
-      width: 0;
+      opacity: 0;
+      transform: translateY(30px);
     }
     to {
-      width: 100%;
-    }
-  }
-
-  @keyframes blink {
-    0%,
-    50% {
       opacity: 1;
-    }
-    51%,
-    100% {
-      opacity: 0;
+      transform: translateY(0);
     }
   }
 
-  #cursor {
-    animation: blink 1s step-end infinite;
+  .section {
+    opacity: 0;
+    animation: fadeUp 0.6s ease-out forwards;
   }
 
-  .menu-item {
-    transition: all 0.1s ease;
-  }
+  .about { animation-delay: 0.1s; }
+  .projects { animation-delay: 0.2s; }
+  .skills { animation-delay: 0.3s; }
+  .contact { animation-delay: 0.4s; }
 
-  .menu-item.selected {
-    background: rgba(107, 193, 255, 0.1);
+  /* Responsive */
+  @media (max-width: 640px) {
+    .hero {
+      min-height: 70vh;
+      padding: 3rem 1.5rem;
+    }
+
+    .section {
+      padding: 3.5rem 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .project-card {
+      padding: 1.5rem;
+    }
+
+    .project-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .skills-grid {
+      gap: 2rem;
+    }
+
+    .contact-links {
+      flex-direction: column;
+    }
+
+    .contact-link {
+      justify-content: center;
+    }
   }
 </style>
-
-<script>
-  const terminal = document.getElementById("terminal")!;
-  const output = document.getElementById("output")!;
-  const currentInput = document.getElementById("current-input")!;
-  const cursor = document.getElementById("cursor")!;
-  const mobileInput = document.getElementById(
-    "mobile-input",
-  ) as HTMLInputElement;
-
-  // Detect mobile device
-  const isMobile =
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent,
-    ) || window.innerWidth < 768;
-
-  let inputBuffer = "";
-  let commandHistory: string[] = [];
-  let historyIndex = -1;
-  let menuMode = false;
-  let menuItems: string[] = [];
-  let menuIndex = 0;
-  let currentMenu = "";
-
-  // Snake game state
-  let gameMode = false;
-  let snakeGameInterval: number | null = null;
-  let snake: { x: number; y: number }[] = [];
-  let food: { x: number; y: number } = { x: 0, y: 0 };
-  let direction: "up" | "down" | "left" | "right" = "right";
-  let nextDirection: "up" | "down" | "left" | "right" = "right";
-  let score = 0;
-  let gameOver = false;
-  const GRID_WIDTH = 30;
-  const GRID_HEIGHT = 15;
-  const GAME_SPEED = 100;
-
-  const commands: Record<string, () => void> = {
-    help: showHelp,
-    about: showAbout,
-    projects: showProjects,
-    skills: showSkills,
-    contact: showContact,
-    clear: clearTerminal,
-    welcome: showWelcome,
-    snake: startSnakeGame,
-  };
-
-  const commandList = Object.keys(commands);
-
-  function typeText(
-    text: string,
-    element: HTMLElement,
-    speed = 10,
-  ): Promise<void> {
-    return new Promise((resolve) => {
-      let i = 0;
-      element.textContent = "";
-      const interval = setInterval(() => {
-        if (i < text.length) {
-          element.textContent += text[i];
-          i++;
-          scrollToBottom();
-        } else {
-          clearInterval(interval);
-          resolve();
-        }
-      }, speed);
-    });
-  }
-
-  function addLine(content: string, className = "") {
-    const line = document.createElement("div");
-    line.className = className;
-    line.innerHTML = content;
-    output.appendChild(line);
-    scrollToBottom();
-  }
-
-  function addPromptLine(command: string) {
-    addLine(
-      `<span class="text-[#27ca3f]">➜</span> <span class="text-[#6bc1ff]">~</span> <span class="text-white">${command}</span>`,
-    );
-  }
-
-  function scrollToBottom() {
-    terminal.scrollTop = terminal.scrollHeight;
-  }
-
-  function clearTerminal() {
-    output.innerHTML = "";
-    exitMenu();
-  }
-
-  function showWelcome() {
-    addLine(
-      '<pre class="text-[#6bc1ff] leading-none"> █████╗ ██╗     ███████╗██╗  ██╗\n██╔══██╗██║     ██╔════╝╚██╗██╔╝\n███████║██║     █████╗   ╚███╔╝\n██╔══██║██║     ██╔══╝   ██╔██╗\n██║  ██║███████╗███████╗██╔╝ ██╗\n╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝</pre>',
-    );
-    addLine("");
-    addLine(
-      '<span class="text-[#a0a0a0]">Welcome to my interactive portfolio terminal.</span>',
-    );
-    addLine(
-      '<span class="text-[#a0a0a0]">Type <span class="text-[#ffbd2e]">help</span> to see available commands.</span>',
-    );
-    addLine("");
-  }
-
-  function showHelp() {
-    addLine("");
-    addLine('<span class="text-[#ffbd2e]">Available commands:</span>');
-    addLine("");
-    addLine(
-      '  <span class="text-[#27ca3f]">about</span>      <span class="text-[#a0a0a0]">- Learn about me</span>',
-    );
-    addLine(
-      '  <span class="text-[#27ca3f]">projects</span>   <span class="text-[#a0a0a0]">- View my projects</span>',
-    );
-    addLine(
-      '  <span class="text-[#27ca3f]">skills</span>     <span class="text-[#a0a0a0]">- See my technical skills</span>',
-    );
-    addLine(
-      '  <span class="text-[#27ca3f]">contact</span>    <span class="text-[#a0a0a0]">- Get in touch</span>',
-    );
-    addLine(
-      '  <span class="text-[#27ca3f]">clear</span>      <span class="text-[#a0a0a0]">- Clear the terminal</span>',
-    );
-    addLine(
-      '  <span class="text-[#27ca3f]">help</span>       <span class="text-[#a0a0a0]">- Show this message</span>',
-    );
-    addLine("");
-  }
-
-  function showAbout() {
-    addLine("");
-    addLine('<span class="text-[#6bc1ff]">━━━ About Me ━━━</span>');
-    addLine("");
-    addLine('<span class="text-white">Álex Santos</span>');
-    addLine(
-      '<span class="text-[#a0a0a0]">Software Developer from Asturias, Spain</span>',
-    );
-    addLine("");
-    addLine(
-      '<span class="text-[#a0a0a0]">I craft iOS & web applications with a focus on</span>',
-    );
-    addLine(
-      '<span class="text-[#a0a0a0]">minimalist UI/UX design. Passionate about creating</span>',
-    );
-    addLine(
-      '<span class="text-[#a0a0a0]">products that people enjoy using.</span>',
-    );
-    addLine("");
-    addLine(
-      '<span class="text-[#27ca3f]">→</span> <span class="text-[#a0a0a0]">Location:</span>  <span class="text-white">Asturias, Spain</span>',
-    );
-    addLine(
-      '<span class="text-[#27ca3f]">→</span> <span class="text-[#a0a0a0]">Focus:</span>     <span class="text-white">iOS, Web, UI/UX</span>',
-    );
-    addLine(
-      '<span class="text-[#27ca3f]">→</span> <span class="text-[#a0a0a0]">Languages:</span> <span class="text-white">Spanish, English</span>',
-    );
-    addLine("");
-  }
-
-  function showProjects() {
-    menuMode = true;
-    currentMenu = "projects";
-    menuItems = ["stride", "monked", "back"];
-    menuIndex = 0;
-
-    addLine("");
-    addLine('<span class="text-[#6bc1ff]">━━━ Projects ━━━</span>');
-    addLine(
-      `<span class="text-[#a0a0a0]">${isMobile ? "Tap to select" : "Use ↑↓ to navigate, Enter to select, Esc to go back"}</span>`,
-    );
-    addLine("");
-    renderProjectsMenu();
-  }
-
-  function renderProjectsMenu() {
-    const menuContainer = document.getElementById("projects-menu");
-    if (menuContainer) menuContainer.remove();
-
-    const menu = document.createElement("div");
-    menu.id = "projects-menu";
-
-    const projects = [
-      {
-        id: "stride",
-        name: "Stride",
-        desc: "Steps tracking app",
-        tech: "Expo, HealthKit",
-      },
-      {
-        id: "monked",
-        name: "Monked",
-        desc: "Habit, journal & meditation app",
-        tech: "Expo, SwiftUI, SQLite",
-      },
-    ];
-
-    projects.forEach((project, i) => {
-      const selected = menuIndex === i;
-      const item = document.createElement("div");
-      item.className = `menu-item py-2 px-3 rounded cursor-pointer ${selected ? "selected bg-[#2a2a3e]" : ""}`;
-      item.innerHTML = `
-        <span class="text-[#ffbd2e]">${selected ? "▶" : " "}</span>
-        <span class="text-[#27ca3f] ml-2">${project.name}</span>
-        <span class="text-[#a0a0a0] ml-2">- ${project.desc}</span>
-        <div class="ml-6 text-[#6b7280] text-xs mt-1">${project.tech}</div>
-      `;
-      item.addEventListener("click", () => selectProject(i));
-      menu.appendChild(item);
-    });
-
-    // Back option
-    const backSelected = menuIndex === projects.length;
-    const backItem = document.createElement("div");
-    backItem.className = `menu-item py-2 px-3 rounded mt-2 cursor-pointer ${backSelected ? "selected bg-[#2a2a3e]" : ""}`;
-    backItem.innerHTML = `
-      <span class="text-[#ffbd2e]">${backSelected ? "▶" : " "}</span>
-      <span class="text-[#ff5f56] ml-2">← Back</span>
-    `;
-    backItem.addEventListener("click", () => selectProject(projects.length));
-    menu.appendChild(backItem);
-
-    output.appendChild(menu);
-    scrollToBottom();
-  }
-
-  function selectProject(index: number) {
-    if (index === menuItems.length - 1) {
-      exitMenu();
-      addLine('<span class="text-[#a0a0a0]">Returned to main prompt.</span>');
-      addLine("");
-      return;
-    }
-
-    const projectId = menuItems[index];
-    exitMenu();
-
-    if (projectId === "stride") {
-      addLine("");
-      addLine('<span class="text-[#6bc1ff]">━━━ Stride ━━━</span>');
-      addLine("");
-      addLine('<span class="text-[#ffbd2e]">Steps Tracking App</span>');
-      addLine("");
-      addLine(
-        '<span class="text-[#a0a0a0]">A beautiful steps tracking application for iOS</span>',
-      );
-      addLine(
-        '<span class="text-[#a0a0a0]">with seamless HealthKit integration and a focus</span>',
-      );
-      addLine(
-        '<span class="text-[#a0a0a0]">on user experience and clean design.</span>',
-      );
-      addLine("");
-      addLine(
-        '<span class="text-[#27ca3f]">→</span> <span class="text-[#a0a0a0]">Tech:</span>      <span class="text-white">Expo, HealthKit</span>',
-      );
-      addLine(
-        '<span class="text-[#27ca3f]">→</span> <span class="text-[#a0a0a0]">Platform:</span>  <span class="text-white">iOS</span>',
-      );
-      addLine(
-        '<span class="text-[#27ca3f]">→</span> <span class="text-[#a0a0a0]">Status:</span>    <span class="text-[#27ca3f]">Active</span>',
-      );
-      addLine("");
-      addLine(
-        '<span class="text-[#6bc1ff]">→ <a target="_blank" rel="noopener noreferrer" href="https://stride.asantinos.com" class="underline hover:text-white">View Project Page</a></span>',
-      );
-      addLine("");
-    } else if (projectId === "monked") {
-      addLine("");
-      addLine('<span class="text-[#f08a24]">━━━ Monked ━━━</span>');
-      addLine("");
-      addLine(
-        '<span class="text-[#ffbd2e]">Habit, Journal & Meditation App</span>',
-      );
-      addLine("");
-      addLine(
-        '<span class="text-[#a0a0a0]">A calm app focused on discipline, consistency</span>',
-      );
-      addLine(
-        '<span class="text-[#a0a0a0]">and mindfulness through habits, journaling</span>',
-      );
-      addLine(
-        '<span class="text-[#a0a0a0]">and a simple meditation practice.</span>',
-      );
-      addLine("");
-      addLine(
-        '<span class="text-[#27ca3f]">→</span> <span class="text-[#a0a0a0]">Tech:</span>      <span class="text-white">Expo, SwiftUI, SQLite</span>',
-      );
-      addLine(
-        '<span class="text-[#27ca3f]">→</span> <span class="text-[#a0a0a0]">Platform:</span>  <span class="text-white">iOS</span>',
-      );
-      addLine(
-        '<span class="text-[#27ca3f]">→</span> <span class="text-[#a0a0a0]">Status:</span>    <span class="text-[#ffbd2e]">In development</span>',
-      );
-      addLine("");
-      addLine(
-        '<span class="text-[#f08a24]">→ <a target="_blank" rel="noopener noreferrer" href="https://monked.asantinos.com" class="underline hover:text-white">View Project Page</a></span>',
-      );
-      addLine("");
-    }
-  }
-
-  function showSkills() {
-    addLine("");
-    addLine('<span class="text-[#6bc1ff]">━━━ Skills ━━━</span>');
-    addLine("");
-    addLine('<span class="text-[#ffbd2e]">Languages</span>');
-    addLine(
-      '  <span class="text-white">JavaScript</span>  <span class="text-[#27ca3f]">████████████████████</span> Expert',
-    );
-    addLine(
-      '  <span class="text-white">TypeScript</span>  <span class="text-[#27ca3f]">██████████████████░░</span> Advanced',
-    );
-    addLine(
-      '  <span class="text-white">Python</span>      <span class="text-[#27ca3f]">██████████████░░░░░░</span> Intermediate',
-    );
-    addLine("");
-    addLine('<span class="text-[#ffbd2e]">Frameworks</span>');
-    addLine(
-      '  <span class="text-white">React</span>       <span class="text-[#6bc1ff]">████████████████████</span> Expert',
-    );
-    addLine(
-      '  <span class="text-white">Next.js</span>       <span class="text-[#6bc1ff]">████████████████████</span> Expert',
-    );
-    addLine(
-      '  <span class="text-white">Astro</span>       <span class="text-[#6bc1ff]">████████████████████</span> Expert',
-    );
-    addLine(
-      '  <span class="text-white">Tailwind CSS</span>       <span class="text-[#6bc1ff]">████████████████████</span> Expert',
-    );
-    addLine(
-      '  <span class="text-white">Expo / React Native</span>       <span class="text-[#6bc1ff]">████████████████░░░░</span> Advanced',
-    );
-    addLine(
-      '  <span class="text-white">Node.js</span>     <span class="text-[#6bc1ff]">██████████████████░░</span> Advanced',
-    );
-    addLine(
-      '  <span class="text-white">SwiftUI</span>     <span class="text-[#6bc1ff]">████████████████░░░░</span> Advanced',
-    );
-    addLine("");
-    addLine('<span class="text-[#ffbd2e]">Tools</span>');
-    addLine(
-      '  <span class="text-[#a0a0a0]">Git, Docker, Figma, Supabase</span>',
-    );
-    addLine("");
-  }
-
-  function showContact() {
-    menuMode = true;
-    currentMenu = "contact";
-    menuItems = ["email", "github", "linkedin", "x", "back"];
-    menuIndex = 0;
-
-    addLine("");
-    addLine('<span class="text-[#6bc1ff]">━━━ Contact ━━━</span>');
-    addLine(
-      `<span class="text-[#a0a0a0]">${isMobile ? "Tap to select" : "Use ↑↓ to navigate, Enter to open link, Esc to go back"}</span>`,
-    );
-    addLine("");
-    renderContactMenu();
-  }
-
-  function renderContactMenu() {
-    const menuContainer = document.getElementById("contact-menu");
-    if (menuContainer) menuContainer.remove();
-
-    const menu = document.createElement("div");
-    menu.id = "contact-menu";
-
-    const contacts = [
-      {
-        id: "email",
-        name: "Email",
-        value: "hello@asantinos.com",
-        url: "mailto:hello@asantinos.com",
-      },
-      {
-        id: "github",
-        name: "GitHub",
-        value: "github.com/asantinos",
-        url: "https://github.com/asantinos",
-      },
-      {
-        id: "linkedin",
-        name: "LinkedIn",
-        value: "linkedin.com/in/asantinos",
-        url: "https://linkedin.com/in/asantinos",
-      },
-      {
-        id: "x",
-        name: "X",
-        value: "x.com/alexgrok",
-        url: "https://x.com/alexgrok",
-      },
-    ];
-
-    contacts.forEach((contact, i) => {
-      const selected = menuIndex === i;
-      const item = document.createElement("div");
-      item.className = `menu-item py-2 px-3 rounded cursor-pointer ${selected ? "selected bg-[#2a2a3e]" : ""}`;
-      item.innerHTML = `
-        <span class="text-[#ffbd2e]">${selected ? "▶" : " "}</span>
-        <span class="text-[#27ca3f] ml-2">${contact.name}</span>
-        <span class="text-[#a0a0a0] ml-2">→ ${contact.value}</span>
-      `;
-      item.addEventListener("click", () => selectContact(i));
-      menu.appendChild(item);
-    });
-
-    // Back option
-    const backSelected = menuIndex === contacts.length;
-    const backItem = document.createElement("div");
-    backItem.className = `menu-item py-2 px-3 rounded mt-2 cursor-pointer ${backSelected ? "selected bg-[#2a2a3e]" : ""}`;
-    backItem.innerHTML = `
-      <span class="text-[#ffbd2e]">${backSelected ? "▶" : " "}</span>
-      <span class="text-[#ff5f56] ml-2">← Back</span>
-    `;
-    backItem.addEventListener("click", () => selectContact(contacts.length));
-    menu.appendChild(backItem);
-
-    output.appendChild(menu);
-    scrollToBottom();
-  }
-
-  function selectContact(index: number) {
-    const contacts = [
-      { url: "mailto:hello@asantinos.com" },
-      { url: "https://github.com/asantinos" },
-      { url: "https://linkedin.com/in/asantinos" },
-      { url: "https://x.com/alexgrok" },
-    ];
-
-    if (index === menuItems.length - 1) {
-      exitMenu();
-      addLine('<span class="text-[#a0a0a0]">Returned to main prompt.</span>');
-      addLine("");
-      return;
-    }
-
-    window.open(contacts[index].url, "_blank");
-  }
-
-  // Snake Game Functions
-  function startSnakeGame() {
-    // Check if on mobile device
-    if (isMobile) {
-      addLine("");
-      addLine('<span class="text-[#ff5f56]">━━━ SNAKE GAME ━━━</span>');
-      addLine("");
-      addLine(
-        '<span class="text-[#a0a0a0]">Sorry! This game requires a keyboard to play.</span>',
-      );
-      addLine(
-        '<span class="text-[#a0a0a0]">Please visit on a <span class="text-[#6bc1ff]">desktop computer</span> to enjoy the game.</span>',
-      );
-      addLine("");
-      return;
-    }
-
-    gameMode = true;
-    gameOver = false;
-    score = 0;
-    direction = "right";
-    nextDirection = "right";
-
-    // Initialize snake in the middle
-    const startX = Math.floor(GRID_WIDTH / 2);
-    const startY = Math.floor(GRID_HEIGHT / 2);
-    snake = [
-      { x: startX, y: startY },
-      { x: startX - 1, y: startY },
-      { x: startX - 2, y: startY },
-    ];
-
-    spawnFood();
-
-    // Hide input line during game
-    const inputLine = document.getElementById("input-line");
-    if (inputLine) inputLine.style.display = "none";
-
-    addLine("");
-    addLine('<span class="text-[#27ca3f]">━━━ SNAKE GAME ━━━</span>');
-    addLine(
-      '<span class="text-[#a0a0a0]">Use arrow keys to move · <span class="text-[#ffbd2e]">Ctrl+C</span> to quit</span>',
-    );
-    addLine("");
-
-    renderGame();
-
-    // Start game loop
-    snakeGameInterval = window.setInterval(gameLoop, GAME_SPEED);
-  }
-
-  function spawnFood() {
-    let newFood: { x: number; y: number };
-    do {
-      newFood = {
-        x: Math.floor(Math.random() * GRID_WIDTH),
-        y: Math.floor(Math.random() * GRID_HEIGHT),
-      };
-    } while (
-      snake.some(
-        (segment) => segment.x === newFood.x && segment.y === newFood.y,
-      )
-    );
-    food = newFood;
-  }
-
-  function gameLoop() {
-    if (gameOver || !gameMode) return;
-
-    direction = nextDirection;
-
-    // Calculate new head position
-    const head = { ...snake[0] };
-    switch (direction) {
-      case "up":
-        head.y--;
-        break;
-      case "down":
-        head.y++;
-        break;
-      case "left":
-        head.x--;
-        break;
-      case "right":
-        head.x++;
-        break;
-    }
-
-    // Check wall collision
-    if (
-      head.x < 0 ||
-      head.x >= GRID_WIDTH ||
-      head.y < 0 ||
-      head.y >= GRID_HEIGHT
-    ) {
-      endGame();
-      return;
-    }
-
-    // Check self collision
-    if (snake.some((segment) => segment.x === head.x && segment.y === head.y)) {
-      endGame();
-      return;
-    }
-
-    // Add new head
-    snake.unshift(head);
-
-    // Check food collision
-    if (head.x === food.x && head.y === food.y) {
-      score += 10;
-      spawnFood();
-    } else {
-      snake.pop();
-    }
-
-    renderGame();
-  }
-
-  function renderGame() {
-    const gameContainer = document.getElementById("snake-game");
-    if (gameContainer) gameContainer.remove();
-
-    const game = document.createElement("div");
-    game.id = "snake-game";
-
-    // Build the game board
-    let board = '<pre class="leading-none text-[#3a3a3a]">';
-
-    // Top border
-    board +=
-      '<span class="text-[#6b7280]">┌' + "─".repeat(GRID_WIDTH) + "┐</span>\n";
-
-    for (let y = 0; y < GRID_HEIGHT; y++) {
-      board += '<span class="text-[#6b7280]">│</span>';
-      for (let x = 0; x < GRID_WIDTH; x++) {
-        const isHead = snake[0].x === x && snake[0].y === y;
-        const isBody = snake.slice(1).some((s) => s.x === x && s.y === y);
-        const isFood = food.x === x && food.y === y;
-
-        if (isHead) {
-          board += '<span class="text-[#27ca3f]">@</span>';
-        } else if (isBody) {
-          board += '<span class="text-[#27ca3f]">○</span>';
-        } else if (isFood) {
-          board += '<span class="text-[#ff5f56]">●</span>';
-        } else {
-          board += " ";
-        }
-      }
-      board += '<span class="text-[#6b7280]">│</span>\n';
-    }
-
-    // Bottom border
-    board +=
-      '<span class="text-[#6b7280]">└' + "─".repeat(GRID_WIDTH) + "┘</span>";
-    board += "</pre>";
-
-    // Score
-    board += `<div class="mt-2 text-[#ffbd2e]">Score: <span class="text-white">${score}</span></div>`;
-
-    if (gameOver) {
-      board +=
-        '<div class="mt-2 text-[#ff5f56]">GAME OVER! Press any key to continue...</div>';
-    }
-
-    game.innerHTML = board;
-    output.appendChild(game);
-    scrollToBottom();
-  }
-
-  function endGame() {
-    gameOver = true;
-    if (snakeGameInterval) {
-      clearInterval(snakeGameInterval);
-      snakeGameInterval = null;
-    }
-    renderGame();
-  }
-
-  function exitSnakeGame() {
-    gameMode = false;
-    gameOver = false;
-    if (snakeGameInterval) {
-      clearInterval(snakeGameInterval);
-      snakeGameInterval = null;
-    }
-
-    const gameContainer = document.getElementById("snake-game");
-    if (gameContainer) gameContainer.remove();
-
-    // Show input line again
-    const inputLine = document.getElementById("input-line");
-    if (inputLine) inputLine.style.display = "flex";
-
-    addLine(
-      `<span class="text-[#a0a0a0]">Game ended. Final score: <span class="text-[#ffbd2e]">${score}</span></span>`,
-    );
-    addLine("");
-  }
-
-  function exitMenu() {
-    menuMode = false;
-    currentMenu = "";
-    menuItems = [];
-    menuIndex = 0;
-    const projectsMenu = document.getElementById("projects-menu");
-    const contactMenu = document.getElementById("contact-menu");
-    if (projectsMenu) projectsMenu.remove();
-    if (contactMenu) contactMenu.remove();
-  }
-
-  function executeCommand(cmd: string) {
-    const trimmed = cmd.trim().toLowerCase();
-    addPromptLine(cmd);
-
-    if (trimmed === "") {
-      return;
-    }
-
-    if (commands[trimmed]) {
-      commands[trimmed]();
-    } else {
-      addLine(
-        `<span class="text-[#ff5f56]">zsh: command not found: ${cmd}</span>`,
-      );
-      addLine(
-        '<span class="text-[#a0a0a0]">Type <span class="text-[#ffbd2e]">help</span> to see available commands.</span>',
-      );
-      addLine("");
-    }
-
-    if (trimmed !== "") {
-      commandHistory.unshift(trimmed);
-      if (commandHistory.length > 50) commandHistory.pop();
-    }
-    historyIndex = -1;
-  }
-
-  function autocomplete(partial: string): string {
-    const matches = commandList.filter((cmd) =>
-      cmd.startsWith(partial.toLowerCase()),
-    );
-    if (matches.length === 1) {
-      return matches[0];
-    } else if (matches.length > 1) {
-      addPromptLine(partial);
-      addLine('<span class="text-[#a0a0a0]">' + matches.join("  ") + "</span>");
-      return partial;
-    }
-    return partial;
-  }
-
-  function updateInput() {
-    currentInput.textContent = inputBuffer;
-    // Sync with mobile input
-    if (mobileInput && mobileInput.value !== inputBuffer) {
-      mobileInput.value = inputBuffer;
-    }
-  }
-
-  // Keyboard handler
-  terminal.addEventListener("keydown", (e: KeyboardEvent) => {
-    // Skip if event is from mobile input (it has its own handler)
-    if (e.target === mobileInput) return;
-
-    // Snake game mode
-    if (gameMode) {
-      e.preventDefault();
-
-      // Ctrl+C to exit game
-      if (e.ctrlKey && e.key === "c") {
-        exitSnakeGame();
-        return;
-      }
-
-      // If game over, any key exits
-      if (gameOver) {
-        exitSnakeGame();
-        return;
-      }
-
-      // Arrow keys to change direction
-      if (e.key === "ArrowUp" && direction !== "down") {
-        nextDirection = "up";
-      } else if (e.key === "ArrowDown" && direction !== "up") {
-        nextDirection = "down";
-      } else if (e.key === "ArrowLeft" && direction !== "right") {
-        nextDirection = "left";
-      } else if (e.key === "ArrowRight" && direction !== "left") {
-        nextDirection = "right";
-      }
-      return;
-    }
-
-    if (menuMode) {
-      // Menu navigation
-      if (e.key === "ArrowUp") {
-        e.preventDefault();
-        menuIndex = Math.max(0, menuIndex - 1);
-        if (currentMenu === "projects") renderProjectsMenu();
-        if (currentMenu === "contact") renderContactMenu();
-      } else if (e.key === "ArrowDown") {
-        e.preventDefault();
-        menuIndex = Math.min(menuItems.length - 1, menuIndex + 1);
-        if (currentMenu === "projects") renderProjectsMenu();
-        if (currentMenu === "contact") renderContactMenu();
-      } else if (e.key === "Enter") {
-        e.preventDefault();
-        if (currentMenu === "projects") selectProject(menuIndex);
-        if (currentMenu === "contact") selectContact(menuIndex);
-      } else if (e.key === "Escape") {
-        e.preventDefault();
-        exitMenu();
-        addLine('<span class="text-[#a0a0a0]">Returned to main prompt.</span>');
-        addLine("");
-      }
-      return;
-    }
-
-    // Normal command mode
-    if (e.key === "Enter") {
-      e.preventDefault();
-      executeCommand(inputBuffer);
-      inputBuffer = "";
-      updateInput();
-    } else if (e.key === "Backspace") {
-      e.preventDefault();
-      inputBuffer = inputBuffer.slice(0, -1);
-      updateInput();
-    } else if (e.key === "ArrowUp") {
-      e.preventDefault();
-      if (commandHistory.length > 0) {
-        historyIndex = Math.min(historyIndex + 1, commandHistory.length - 1);
-        inputBuffer = commandHistory[historyIndex];
-        updateInput();
-      }
-    } else if (e.key === "ArrowDown") {
-      e.preventDefault();
-      if (historyIndex > 0) {
-        historyIndex--;
-        inputBuffer = commandHistory[historyIndex];
-      } else {
-        historyIndex = -1;
-        inputBuffer = "";
-      }
-      updateInput();
-    } else if (e.key === "Tab") {
-      e.preventDefault();
-      inputBuffer = autocomplete(inputBuffer);
-      updateInput();
-    } else if (e.key === "Escape") {
-      e.preventDefault();
-      inputBuffer = "";
-      updateInput();
-    } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
-      e.preventDefault();
-      inputBuffer += e.key;
-      updateInput();
-    } else if (e.ctrlKey && e.key === "l") {
-      e.preventDefault();
-      clearTerminal();
-    } else if (e.ctrlKey && e.key === "c") {
-      e.preventDefault();
-      addPromptLine(inputBuffer + "^C");
-      inputBuffer = "";
-      updateInput();
-    }
-  });
-
-  // Focus terminal on click (and mobile input for keyboard)
-  terminal.addEventListener("click", () => {
-    terminal.focus();
-    if (isMobile && mobileInput) {
-      mobileInput.style.pointerEvents = "auto";
-      mobileInput.focus();
-    }
-  });
-
-  // Mobile input handling
-  if (mobileInput) {
-    mobileInput.addEventListener("input", () => {
-      if (gameMode || menuMode) return;
-      inputBuffer = mobileInput.value;
-      currentInput.textContent = inputBuffer;
-      scrollToBottom();
-    });
-
-    mobileInput.addEventListener("keydown", (e: KeyboardEvent) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        e.stopPropagation();
-        if (!gameMode && !menuMode) {
-          executeCommand(inputBuffer);
-          inputBuffer = "";
-          mobileInput.value = "";
-          updateInput();
-        }
-      }
-    });
-  }
-
-  // Initialize on DOM ready
-  document.addEventListener("DOMContentLoaded", () => {
-    terminal.focus();
-    if (isMobile && mobileInput) {
-      mobileInput.focus();
-    }
-    showWelcome();
-  });
-</script>
