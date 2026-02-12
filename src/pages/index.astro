@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/RootLayout.astro";
+import { projects } from "../data/projects";
 ---
 
 <Layout title="Álex Santos | Software Developer" description="Software Developer from Asturias, Spain. Crafting iOS & web applications with a focus on minimalist design.">
@@ -30,32 +31,21 @@ import Layout from "../layouts/RootLayout.astro";
     <section class="section projects" id="projects">
       <h2 class="section-title">Projects</h2>
       <div class="projects-grid">
-        <a href="https://stride.asantinos.com" target="_blank" rel="noopener noreferrer" class="project-card">
-          <div class="project-header">
-            <h3 class="project-name">Stride</h3>
-            <span class="project-status active">Active</span>
-          </div>
-          <p class="project-desc">A beautiful steps tracking application for iOS with seamless HealthKit integration and a focus on user experience.</p>
-          <div class="project-tech">
-            <span>Expo</span>
-            <span>HealthKit</span>
-          </div>
-          <span class="project-link">View Project →</span>
-        </a>
-
-        <a href="https://monked.asantinos.com" target="_blank" rel="noopener noreferrer" class="project-card monked">
-          <div class="project-header">
-            <h3 class="project-name">Monked</h3>
-            <span class="project-status dev">In Development</span>
-          </div>
-          <p class="project-desc">A calm app focused on discipline and mindfulness through habits, journaling, and meditation practice.</p>
-          <div class="project-tech">
-            <span>Expo</span>
-            <span>SwiftUI</span>
-            <span>SQLite</span>
-          </div>
-          <span class="project-link">View Project →</span>
-        </a>
+        {projects.map((project) => (
+          <a href={project.url} target="_blank" rel="noopener noreferrer" class={`project-card${project.className ? ` ${project.className}` : ""}`}>
+            <div class="project-header">
+              <h3 class="project-name">{project.name}</h3>
+              <span class={`project-status ${project.status}`}>
+                {project.status === "active" ? "Active" : "In Development"}
+              </span>
+            </div>
+            <p class="project-desc">{project.description}</p>
+            <div class="project-tech">
+              {project.tech.map((t) => <span>{t}</span>)}
+            </div>
+            <span class="project-link">View Project →</span>
+          </a>
+        ))}
       </div>
     </section>
 
@@ -120,7 +110,7 @@ import Layout from "../layouts/RootLayout.astro";
 
     <!-- Footer -->
     <footer class="footer">
-      <p>© 2025 Álex Santos</p>
+      <p>© {new Date().getFullYear()} Álex Santos</p>
     </footer>
   </div>
 </Layout>
@@ -272,8 +262,19 @@ import Layout from "../layouts/RootLayout.astro";
     border-color: var(--color-accent);
   }
 
+  .project-card.stride {
+    background: linear-gradient(135deg, var(--color-bg-alt) 0%, #e8eef7 100%);
+    border-color: #cdd8ea;
+  }
+
   .project-card.monked {
     background: linear-gradient(135deg, var(--color-bg-alt) 0%, #f7f3eb 100%);
+    border-color: #e0d6c4;
+  }
+
+  .project-card.pump {
+    background: linear-gradient(135deg, var(--color-bg-alt) 0%, #e5e5e5 100%);
+    border-color: #cccccc;
   }
 
   .project-header {

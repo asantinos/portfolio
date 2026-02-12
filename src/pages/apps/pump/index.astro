@@ -1,33 +1,35 @@
 ---
-import Layout from "../../../layouts/MonkedLayout.astro";
+import Layout from "../../../layouts/PumpLayout.astro";
 
-const appName = "Monked";
-const tagline = "A calm habit tracker for focus and discipline.";
-const subtitle = "Habit tracker, journal & meditation";
+const appName = "Pump";
+const tagline = "Your gym workout tracker.";
+const subtitle = "Gym workout tracker";
 const developer = "asantinos";
 
-const APPLE_ID = "6759085654";
+const APPLE_ID = "";
 
-const appStoreUrl = APPLE_ID ? `https://apps.apple.com/app/id${APPLE_ID}` : "";
+const appStoreUrl = "";
+// const appStoreUrl = `https://apps.apple.com/app/id${APPLE_ID}`;
 
 const features = [
-  "Today view: habits at a glance",
-  "One-tap habit completion",
-  "Custom goals (times per week)",
-  "Journal entries",
-  "Meditation timer",
+  "Log exercises, sets, reps & weight",
+  "Pre-built and custom workout routines",
+  "Track progress over time",
+  "Workout history & stats",
+  "Apple Health integration",
   "No accounts, no ads, no tracking",
 ];
 
 const roadmap = [
-  { text: "Export & import data", done: true },
-  { text: "More background sounds", done: false },
-  { text: "Home and lock screen widgets", done: false },
+  { text: "Exercise library with instructions", done: false },
+  { text: "Personal records tracking", done: false },
+  { text: "Rest timer", done: false },
+  { text: "Workout templates", done: false },
 ];
 
 const changelog = [
   {
-    version: "1.0.0",
+    version: "0.1.0",
     date: "Coming Soon",
     changes: ["Initial release"],
   },
@@ -41,19 +43,17 @@ const changelog = [
       <header>
         <div class="flex items-start gap-5">
           <div
-            class="h-24 w-24 sm:h-32 sm:w-32 shrink-0 rounded-[22px] bg-[#f08a24] ring-1 ring-neutral-800 flex items-center justify-center overflow-hidden"
+            class="h-24 w-24 sm:h-32 sm:w-32 shrink-0 rounded-[22px] bg-[#3474cf] ring-1 ring-neutral-800 flex items-center justify-center overflow-hidden"
           >
             <img
-              src="/apps/monked/icons/monked.webp"
-              alt="Monked Logo"
+              src="/apps/stride/icons/stride.webp"
+              alt="Stride Logo"
               class="w-full h-full"
             />
           </div>
 
           <div class="flex-1 min-w-0">
-            <h1 class="text-xl sm:text-2xl font-bold tracking-tight">
-              {appName}
-            </h1>
+            <h1 class="text-xl sm:text-2xl font-bold tracking-tight">{appName}</h1>
             <p class="text-sm text-neutral-400 mt-0.5">{subtitle}</p>
             <p class="text-sm text-neutral-500 mt-1">{developer}</p>
 
@@ -112,8 +112,8 @@ const changelog = [
 
       <!-- Description -->
       <p class="mt-8 text-neutral-300 leading-relaxed">
-        {tagline} Track your habits, write a short journal entry, and meditate with
-        a simple timer — all in a quiet, focused interface.
+        {tagline} Log your workouts, track your progress, and build consistent training
+        routines — all in a clean, focused interface.
       </p>
 
       <!-- Features -->
